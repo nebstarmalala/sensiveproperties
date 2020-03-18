@@ -1,18 +1,21 @@
 <?php
    if (isset($_POST['submit'])) {
     include('connect.php');
-    include('upload.php');
+    include('imageupload.php');
 
       $title =mysqli_real_escape_string ($dbconnect,$_POST['title']);
-      $location=mysqli_real_escape_string ($dbconnect,$_POST['location']);
       $category =mysqli_real_escape_string ($dbconnect,$_POST['category']);
-      $bedrooms =mysqli_real_escape_string ($dbconnect,$_POST['bedrooms']);
+      $location=mysqli_real_escape_string ($dbconnect,$_POST['location']);
       $sale_type =mysqli_real_escape_string ($dbconnect,$_POST['sale_type']);
-      $sold_status =mysqli_real_escape_string ($dbconnect,$_POST['sold_status']);
+      $bedrooms =mysqli_real_escape_string ($dbconnect,$_POST['bedrooms']);
+      $price =mysqli_real_escape_string ($dbconnect,$_POST['price']);
+      $area =mysqli_real_escape_string ($dbconnect,$_POST['area']);
+      $garage =mysqli_real_escape_string ($dbconnect,$_POST['garage']);
+      $bathbed =mysqli_real_escape_string ($dbconnect,$_POST['bathbed']);
       $description =mysqli_real_escape_string ($dbconnect,$_POST['description']);
       $created_at =date("Y-m-d H:i:s",time());
 
-       $insert = mysqli_query($dbconnect,"INSERT INTO `properties` (`title`, `location`, `category`,`bedrooms`,`sale_type`, `sold_status`, `description`, `created_at`) VALUES ('$title','$location','$category','$bedrooms','$sale_type','$sold_status','$description','$created_at')");
+       $insert = mysqli_query($dbconnect,"INSERT INTO `properties` (`title`, `category`,`location`, `sale_type`,`bedrooms`, `price`, `area`, `garage`,`bathbeds`,`descriptions`,`image_name`,`added_on`) VALUES ('$title','$category','$location','$sale_type','$bedrooms','$price','$area','$garage','$bathbed','$description','$new_file_name','$created_at')");
           if($insert){
               header('location:properties.php');
           }else{
@@ -143,19 +146,19 @@
                         <br>
                         <div  class="form-group col-md-12">
                             
-                            <div class="form-group col-md-6" name="price">
-                                <input type="text" class="form-control" name="currency-field" id="currency-field" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency" placeholder="price in $dollars">
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" name="price" id="currency-field" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency" placeholder="price in $dollars">
                             </div>
 
-                            <div class="form-group col-md-6" name="price">
-                                <input type="number" class="form-control" name="currency-field" placeholder="Area in sqft">
+                            <div class="form-group col-md-6" >
+                                <input type="number" class="form-control" name="area" placeholder="Area in sqft">
                             </div>
                             
                         </div>
                         <br>
                         <div class="form-group col-md-12">
                             <div  class="form-group col-md-6">
-                                <select class="form-control" name="sale_type">
+                                <select class="form-control" name="garage">
                                     <option value="">Garage(s)</option>
                                     <option value="1">1 Garage</option>
                                     <option value="2">2 Garages</option>
@@ -164,7 +167,7 @@
                                 </select>
                             </div>
                             <div  class="form-group col-md-6">
-                                <select class="form-control" name="sale_type">
+                                <select class="form-control" name="bathbed">
                                     <option value="">Bath bed(s)</option>
                                     <option value="1">1 Bath bed</option>
                                     <option value="2">2 Bath bed(s)</option>
@@ -175,10 +178,12 @@
                         </div>
                         <br>
                         <div class="form-group col-md-12" >
-                        
                             <textarea class="form-control textarea" rows="6" id="summernote" name="description" ></textarea>                    
                         </div>
-                        
+                        <br>
+                        <div>
+                            <input type="file" class="form-control "  name="filetoupload"  >
+                        </div>
                         <br>
                         <div class="form-group col-md-12">
                             <input type="submit" class="btn btn-primary" name="submit" value="Submit">

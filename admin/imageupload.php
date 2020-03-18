@@ -1,6 +1,6 @@
 <?php
 
-    $file=$_FILES['fileToUpload']['tmp_name'];
+    $file=$_FILES['filetoupload']['tmp_name'];
     $target_dir = "../uploads/";
 
     $file_array = explode(".", $_FILES["fileToUpload"]["name"]);    
