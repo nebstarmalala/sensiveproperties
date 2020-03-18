@@ -38,6 +38,49 @@
         }
     }
 ?>
+<?php
+
+include('connect.php');
+$query = mysqli_query($dbconnect,"select * from properties" );
+
+if (isset($_POST['subscribe'])) {
+    
+    
+  $email =mysqli_real_escape_string ($dbconnect,$_POST['subscribe']);
+  $created_at =date("Y-m-d H:i:s",time());
+  
+  function isValidEmail($email){ 
+    global $error;
+      $pattern = "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i"; 
+  
+      if (!preg_match( $pattern,$email)){
+          $error .="email not valid";
+      } 
+        
+   } 
+   
+   isValidEmail($email);
+
+    if (empty($error)) {
+        $check_email = mysqli_query($dbconnect,"SELECT email FROM `subscribers` WHERE `email` = '$email'");
+        if (mysqli_num_rows($check_email) > 0) {
+            $error .= "Email already exists";
+        }
+
+        if (empty($error)) {   
+            $encrypted_password = sha1($password);
+
+            $insert = mysqli_query($dbconnect,"INSERT INTO `subscribers` (`email`,`subscribed_at`) VALUES ('$email','$created_at')");
+            if($insert){
+                header('location:index.php');
+            }else{
+              $error .= "an error occured";
+            }
+        }
+        
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -195,14 +238,21 @@
             <div class="footer-text">
                 <div class="row">
                     <div class="col-lg-3">
+                        <?php 
+                            if (!empty($error)){ ?>
+                            <div class="alert alert-danger alert-dismissible col-md-12">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <strong>Error!</strong> <?php  echo $error  ?>
+                            </div>
+                        <?php } ?>
                         <div class="footer-logo">
                             <div class="logo">
                                 <a href="#"><img src="img/footer-logo.png" alt=""></a>
                             </div>
                             <p>Subscribe our newsletter gor get notification about new updates.</p>
-                            <form action="#" class="newslatter-form">
-                                <input type="text" placeholder="Enter your email...">
-                                <button type="submit"><i class="fa fa-location-arrow"></i></button>
+                            <form action="index.php" class="newslatter-form" method="post">
+                                <input type="text" placeholder="Enter your email..." name="subscribe">
+                                <button type="submit" name="submit"><i class="fa fa-location-arrow"></i></button>
                             </form>
                         </div>
                     </div>

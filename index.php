@@ -6,7 +6,7 @@
   if (isset($_POST['subscribe'])) {
       
       
-    $email =mysqli_real_escape_string ($dbconnect,$_POST['email_subscribe']);
+    $email =mysqli_real_escape_string ($dbconnect,$_POST['subscribe']);
     $created_at =date("Y-m-d H:i:s",time());
     
     function isValidEmail($email){ 
