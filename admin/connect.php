@@ -1,7 +1,7 @@
 <?php
     $host="localhost";
     $username="root";
-    $password="9993Rev!lo";
+    $password="";
     $db="sensiveproperties";
 
     $dbconnect=mysqli_connect($host,$username,$password,$db);
