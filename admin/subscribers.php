@@ -1,3 +1,9 @@
+<?php 
+
+include('connect.php');
+$subscribers = mysqli_query($dbconnect,"select * from subscribers" );
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -10,6 +16,84 @@
         <link href="css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+        <style>
+        .dataTable {
+        display: block;
+        width: 100%;
+        margin: 1em 0;
+        }
+
+        .dataTable thead, .dataTable tbody, .dataTable thead tr, .dataTable th {
+        display: block;
+        }
+
+        .dataTable thead {
+        float: left;
+        }
+
+        .dataTable tbody {
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+        }
+
+        .dataTable td, .dataTable th {
+        padding: .625em;
+        line-height: 1.5em;
+        border-bottom: none;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: auto;
+        }
+
+        .dataTable th {
+        text-align: left;
+        background: rgba(0, 0, 0, 0.14);
+        border-bottom: none;
+        }
+
+        .dataTable tbody tr {
+        display: table-cell;
+        }
+
+        .dataTable tbody td {
+        display: block;
+        }
+
+        .dataTable tr:nth-child(odd) {
+            background: rgba(0, 0, 0, 0.07);
+        }
+
+        @media screen and (min-width: 50em) {
+
+        .dataTable {
+            display: table;
+        }
+        
+        .dataTable thead {
+            display: table-header-group;
+            float: none;
+        }
+        
+        .dataTable tbody {
+            display: table-row-group;
+        }
+        
+        .dataTable thead tr, .dataTable tbody tr {
+            display: table-row;
+        }
+        
+        .dataTable th, .dataTable tbody td {
+            display: table-cell;
+        }
+        
+        .dataTable td, .dataTable th {
+            width: auto;
+        }
+        
+        }
+
+    </style>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -67,7 +151,26 @@
                                 </li>
                             </ul>
                         </ol>
-                        
+                        <div class="container-fluid">
+                            <table class="dataTable">
+                                <thead>
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>Subject</th>
+                                        <th>Date Of Subscription</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <?php while ($subscriber=mysqli_fetch_assoc($subscribers)) { ?>
+                                    <tr>
+                                        <td><?php echo $subscriber['id'] ?></td>
+                                        <td><?php echo $subscriber['email'] ?></td>
+                                        <td><?php echo date("dS M Y  "); ?></td>
+                                    </tr>
+                                <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
