@@ -10,7 +10,7 @@
 
     
     
-    if ($_FILES["fileToUpload"]["size"] > 1000000) {
+    if ($_FILES["filetoupload"]["size"] > 1000000) {
         echo "Sorry, your file is too large.";
         $uploadOk = 0;
     }
@@ -22,7 +22,7 @@
     }
     
     if ($uploadOk !=0 ){
-        if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'],$target_dir.$new_file_name)) {
+        if (move_uploaded_file($_FILES['filetoupload']['tmp_name'],$target_dir.$new_file_name)) {
             // echo "The file has been uploaded.";
         } else {
             echo "Sorry, there was an error uploading your file.";
