@@ -171,8 +171,8 @@ $news = mysqli_query($dbconnect,"select * from news" );
                                         <td><?php echo substr($new['description'],0,200); ?></td>
                                         <td><?php echo date("dS M Y  "); ?></td>
                                         <td>
-                                            <a href="#"><i class="far fa-edit" style="font-size:24px;margin-right:15px;"></i> 
-                                            <a href="#"><i class="fas fa-trash-alt"  style="font-size:24px;"></i> 
+                                            <a href="editnews.php"><i class="far fa-edit" style="font-size:24px;margin-right:15px;"></i></a> 
+                                            <a href="#"><i class="fas fa-trash-alt"  style="font-size:24px;"></i> </a>
                                         </td>
                                     </tr>
                                 <?php } ?>
