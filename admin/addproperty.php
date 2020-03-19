@@ -121,8 +121,18 @@
                         </div>
                     </div>
                         <div class="form-group col-md-12">
-                        <?php include('googlemap.php') ?>
-                        </div>
+                            <div class="form-group">
+                                <label for="location">Property location</label>
+                                <input type="text" class="form-control" aria-describedby="PropertyHelp" value="Nairobi, Kenya" name="location" id="location-address" aria-describedby="locationHelp" data-latitude-input="#location-lat" data-longitude-input="#location-lon" placeholder="The location of the property" required>                           
+                                <small class="form-text text-muted" id="PropertyHelp">Type the name or click the location on the map.</small> 
+                            </div>  
+                            <div class="form-group" >
+                                <div id="location" style="height: 400px;"></div>
+                                <input type="hidden" class="form-control" name="latitude" style="width: 110px" id="location-lat" />
+                                <input type="hidden" class="form-control" name="longitude" style="width: 110px" id="location-lon" />
+                            </div>                                       
+                                        
+                        </div> 
                         <div class="form-group col-md-12" >
                             <div  class="form-group col-md-6">
                                 <select class="form-control" name="sale_type">
@@ -212,6 +222,8 @@
         <script src="js/scripts.js"></script>
         <script src="summernote/summernote-bs4.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=true&libraries=places&key=AIzaSyBO5Else2rW4UNyXiCMp3y20JV7BseTMys"></script>
+        <script src="js/jquery.placepicker.js"></script>
         
         <script src="assets/demo/datatables-demo.js"></script>
         <script>
@@ -325,5 +337,23 @@ function formatCurrency(input, blur) {
   input[0].setSelectionRange(caret_pos, caret_pos);
 }
         </script>
+<script >
+    $("#location-address").each(function() {
+      var target = this;
+      var $map = $('#location');
+
+      var placepicker = $(this).placepicker({
+        map: $map.get(0),
+        placeChanged: function(place) {
+          //console.log("place changed: ", place.formatted_address, this.getLocation());
+          var latitude = this.getLocation().latitude;
+          var longitude = this.getLocation().longitude;
+          $('#location-lat').val(latitude);
+          $('#location-lon').val(longitude);
+
+        }
+      }).data('placepicker');
+    });
+</script>
     </body>
 </html>
