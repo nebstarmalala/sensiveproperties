@@ -51,7 +51,7 @@
                                 Dashboard
                             </a>
                             <a class="nav-link" href="subscribers.php"
-                                ><div class="sb-nav-link-icon"><i class="fas fa-building"></i></div>
+                                ><div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                                 subscribers
                             </a>
                             <a class="nav-link" href="properties.php"
