@@ -164,7 +164,7 @@ $queries = mysqli_query($dbconnect,"select * from queries" );
                                 <tr>
                                     <td><?php echo $query['id'] ?></td>
                                     <td><?php echo $query['subject'] ?></td>
-                                    <td><?php echo substr($query['body'],0,200).'...'; ?></td>
+                                    <td><?php echo substr($query['body'],0,200); ?></td>
                                     <td><?php echo date("dS M Y  "); ?></td>
                                     <td>
                                         <a href="#"><i class="far fa-edit" style="font-size:24px;margin-right:15px;"></i> 
