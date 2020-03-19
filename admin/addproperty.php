@@ -15,7 +15,7 @@
       $description =mysqli_real_escape_string ($dbconnect,$_POST['description']);
       $created_at =date("Y-m-d H:i:s",time());
 
-       $insert = mysqli_query($dbconnect,"INSERT INTO `properties` (`title`, `category`,`location`, `sale_type`,`bedrooms`, `price`, `area`, `garage`,`bathbeds`,`descriptions`,`image_name`,`added_on`) VALUES ('$title','$category','$location','$sale_type','$bedrooms','$price','$area','$garage','$bathbed','$description','$new_file_name','$created_at')");
+       $insert = mysqli_query($dbconnect,"INSERT INTO `properties` (`title`, `category`,`location`, `sale_type`,`bedrooms`, `price`, `area`, `garage`,`bathbeds`,`description`,`image`,`added_on`) VALUES ('$title','$category','$location','$sale_type','$bedrooms','$price','$area','$garage','$bathbed','$description','$new_file_name','$created_at')");
           if($insert){
               header('location:properties.php');
           }else{
