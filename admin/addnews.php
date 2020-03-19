@@ -8,11 +8,12 @@
         $description =mysqli_real_escape_string ($dbconnect,$_POST['description']);
         $created_at =date("Y-m-d H:i:s",time());
 
-         $insert = mysqli_query($dbconnect,"INSERT INTO `news` (`title`, `description`,`created_at`) VALUES ('$title','$description','$created_at')");
+         $insert = mysqli_query($dbconnect,"INSERT INTO `news` (`title`, `description`,`date`) VALUES ('$title','$description','$created_at')");
             if($insert){
                 header('location:news.php');
             }else{
                 echo "an error occured";
+                return;
             }
     }
 ?>
@@ -24,7 +25,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Add Property</title>
+        <title>Add news</title>
 
 
         <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -91,7 +92,7 @@
                     <div class="container-fluid">
                     <br>
                     <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Add Property</li>
+                            <li class="breadcrumb-item active">Add News</li>
                         </ol>
                         <form  method="post" action="addnews.php" enctype="multipart/form-data">
                             <div class="form-group col-md-12">
