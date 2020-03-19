@@ -147,7 +147,7 @@
 
     <!-- Feature Section Begin -->
     
-    <!-- Top Properties Section Begin -->
+    <!-- subscribers Section Begin -->
     <div class="top-properties-section spad">
         <div class="container">
             <div class="row">
@@ -155,7 +155,7 @@
                     <div class="properties-title">
                         <div class="section-title">
                             <span>Top Property For You</span>
-                            <h2>Top Properties</h2>
+                            <h2>subscribers</h2>
                         </div>
                         <a href="#" class="top-property-all">View All Property</a>
                     </div>
@@ -207,7 +207,7 @@
             </div>
         </div>
     </div>
-    <!-- Top Properties Section End -->
+    <!-- subscribers Section End -->
 
     
 

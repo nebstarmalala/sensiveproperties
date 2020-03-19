@@ -1,16 +1,16 @@
 <?php
  include('connect.php');
 
-    $top_properties=mysqli_query("SELECT COUNT(*) as TOTAL from topproperties");
+    $top_properties=mysqli_query($dbconnect,"SELECT COUNT(*) as TOTAL from subscribers");
     $top_properties_data=mysqli_fetch_assoc($top_properties);
 
-    $properties=mysqli_query("SELECT COUNT(*) as TOTAL from properties");
+    $properties=mysqli_query($dbconnect,"SELECT COUNT(*) as TOTAL from properties");
     $properties_data=mysqli_fetch_assoc($properties);
 
-    $news=mysqli_query("SELECT COUNT(*) as TOTAL from news");
+    $news=mysqli_query($dbconnect,"SELECT COUNT(*) as TOTAL from news");
     $news_data=mysqli_fetch_assoc($news);
 
-    $enquiries=mysqli_query("SELECT COUNT(*) as TOTAL from queries");
+    $enquiries=mysqli_query($dbconnect,"SELECT COUNT(*) as TOTAL from queries");
     $enquiries_data=mysqli_fetch_assoc($enquiries);
 ?>
 <!DOCTYPE html>
@@ -50,9 +50,9 @@
                                 ><div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
-                            <a class="nav-link" href="topproperties.php"
+                            <a class="nav-link" href="subscribers.php"
                                 ><div class="sb-nav-link-icon"><i class="fas fa-building"></i></div>
-                                Top Properties
+                                subscribers
                             </a>
                             <a class="nav-link" href="properties.php"
                                 ><div class="sb-nav-link-icon"><i class="fas fa-university"></i></div>
@@ -80,9 +80,9 @@
                         </ol>
                         <div class="row"  style="text-align:center;">
 
-                            <a href="topproperties.php"  class="col-xl-3 col-md-6" >
+                            <a href="subscribers.php"  class="col-xl-3 col-md-6" >
                                     <div class="card bg-primary text-white mb-4">
-                                        <div class="card-body">TOP PROPERTIES</div>
+                                        <div class="card-body">subscribers</div>
                                         <h3><?php echo $top_properties_data['TOTAL'] ?></h3>
                                     </div>
                             </a>

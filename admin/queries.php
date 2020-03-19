@@ -119,9 +119,9 @@ $queries = mysqli_query($dbconnect,"select * from queries" );
                                 ><div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard</a>
                             
-                            <a class="nav-link" href="topproperties.php"
+                            <a class="nav-link" href="subscribers.php"
                                 ><div class="sb-nav-link-icon"><i class="fas fa-building"></i></div>
-                                Top Properties
+                                subscribers
                             </a>
                             
                             <a class="nav-link" href="properties.php"
