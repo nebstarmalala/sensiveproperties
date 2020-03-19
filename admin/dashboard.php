@@ -1,3 +1,18 @@
+<?php
+ include('connect.php');
+
+    $top_properties=mysqli_query("SELECT COUNT(*) as TOTAL from topproperties");
+    $top_properties_data=mysqli_fetch_assoc($top_properties);
+
+    $properties=mysqli_query("SELECT COUNT(*) as TOTAL from properties");
+    $properties_data=mysqli_fetch_assoc($properties);
+
+    $news=mysqli_query("SELECT COUNT(*) as TOTAL from news");
+    $news_data=mysqli_fetch_assoc($news);
+
+    $enquiries=mysqli_query("SELECT COUNT(*) as TOTAL from queries");
+    $enquiries_data=mysqli_fetch_assoc($enquiries);
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -68,7 +83,7 @@
                             <a href="topproperties.php"  class="col-xl-3 col-md-6" >
                                     <div class="card bg-primary text-white mb-4">
                                         <div class="card-body">TOP PROPERTIES</div>
-                                        <h3>11+</h3>
+                                        <h3><?php echo $top_properties_data['TOTAL'] ?></h3>
                                     </div>
                             </a>
 
@@ -76,7 +91,7 @@
                             <a href="properties.php"  class="col-xl-3 col-md-6" >
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">PROPERTIES</div>
-                                    <h3>11+</h3>
+                                    <h3><?php echo $properties_data['TOTAL'] ?></h3>
                                 </div>
                             </a>
 
@@ -84,14 +99,14 @@
                             <a href="news.php"  class="col-xl-3 col-md-6" >
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body">NEWS</div>
-                                    <h3>11+</h3>
+                                    <h3><?php echo $news_data['TOTAL'] ?></h3>
                                 </div>
                             </a>
 
                             <a href="enquiries.php"  class="col-xl-3 col-md-6" >
                                 <div class="card bg-danger text-white mb-4">
                                     <div class="card-body">ENQUIRIES</div>
-                                    <h3>11+</h3>
+                                    <h3><?php echo $enquiries_data['TOTAL'] ?></h3>
                                 </div>
                             </a>
                         </div>
