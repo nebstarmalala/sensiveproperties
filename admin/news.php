@@ -64,7 +64,7 @@
                             <li class="breadcrumb-item active">News</li>
                             <ul class="navbar-nav ml-auto ml-md-12">
                                 <li class="nav-item ">
-                                    <a  href="#" role="button"  ><i class="fas fa-plus"></i> Add</a>
+                                    <a  href="addnews.php" role="button"  ><i class="fas fa-plus"></i> Add</a>
                                 </li>
                             </ul>
                         </ol>
