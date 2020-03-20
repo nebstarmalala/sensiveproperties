@@ -94,6 +94,13 @@ $news = mysqli_query($dbconnect,"select * from news" );
         }
 
     </style>
+    <style>
+        a:link, a:visited {
+        text-decoration: none;
+        }
+
+       
+    </style>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">

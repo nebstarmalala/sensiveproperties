@@ -167,6 +167,7 @@ $properties = mysqli_query($dbconnect,"select * from properties" );
                         <?php } ?>
                         </div>
                         
+                        
                     <div class="property-pagination">
                         <a href="#">1</a>
                         <a href="#">2</a>
