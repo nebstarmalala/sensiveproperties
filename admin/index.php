@@ -63,8 +63,8 @@ include('connect.php');
                                             <div class="form-group">
                                                 <div class="custom-control custom-checkbox"><input class="custom-control-input" id="rememberPasswordCheck" type="checkbox" /><label class="custom-control-label" for="rememberPasswordCheck">Remember password</label></div>
                                             </div>
-                                            <button class="btn btn-primary" type="submit" name="submit">Login</button></div>
-                                        </form>
+                                            <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0"><a class="small" href="password.php">Forgot Password? </a><button class="btn btn-primary" type="submit" name="submit">Login</button></div>
+                                           
                                     </div>
                                 </div>
                             </div>

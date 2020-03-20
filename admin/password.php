@@ -1,3 +1,38 @@
+<?php 
+/*echo sha1("password");*/
+include('connect.php');
+   if (isset($_POST['reset'])) {
+
+        $email = $_POST['reset_email'];
+        $token = md5(microtime(true).mt_Rand());
+        $msg = '';
+        $error = '';
+
+        function isValidEmail($email){ 
+            global $error;
+              $pattern = "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i"; 
+          
+              if (!preg_match( $pattern,$email)){
+                  $error .="email not valid";
+              } 
+                
+           } 
+
+           isValidEmail($email);
+  
+            if (empty($error)) {   
+  
+                $insert= mysqli_query($dbconnect,"INSERT INTO `password_reset`(`email`,`reset_token`) VALUES ('$email','$token')");
+                if($insert){
+                    global $msg;
+                    $msg .= "we have sent a password reset email";
+                }else{
+                  $error .= "an error occured";
+                }
+            }
+            
+        } 
+?> 
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -20,10 +55,24 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Password Recovery</h3></div>
                                     <div class="card-body">
+                                        <?php 
+                                            if (!empty($error)){ ?>
+                                            <div class="alert alert-danger alert-dismissible col-md-12">
+                                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                                <strong>Error!</strong> <?php  echo $error  ?>
+                                            </div>
+                                        <?php } ?>
+                                        <?php 
+                                            if (!empty($msg)){ ?>
+                                            <div class="alert alert-success alert-dismissible col-md-12">
+                                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                                <strong>success!</strong> <?php  echo $msg  ?>
+                                            </div>
+                                        <?php } ?>
                                         <div class="small mb-3 text-muted">Enter your email address and we will send you a link to reset your password.</div>
-                                        <form>
-                                            <div class="form-group"><label class="small mb-1" for="inputEmailAddress">Email</label><input class="form-control py-4" id="inputEmailAddress" type="email" aria-describedby="emailHelp" placeholder="Enter email address" /></div>
-                                            <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0"><a class="small" href="index.php">Return to login</a><a class="btn btn-primary" href="index.php">Reset Password</a></div>
+                                        <form action="password.php" method="post">
+                                            <div class="form-group"><label class="small mb-1" for="inputEmailAddress">Email</label><input class="form-control py-4" id="inputEmailAddress" type="email" name="reset_email"  placeholder="Enter  email address" /></div>
+                                            <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0"><a class="small" href="index.php">Return to login</a><button class="btn btn-primary" type="submit" name="reset">reset</button></div>
                                         </form>
                                     </div>
                                    

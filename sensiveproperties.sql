@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2020 at 02:02 PM
--- Server version: 10.1.29-MariaDB
--- PHP Version: 7.1.12
+-- Generation Time: Mar 20, 2020 at 05:50 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -51,7 +51,7 @@ CREATE TABLE `news` (
   `id` int(11) NOT NULL,
   `title` text NOT NULL,
   `description` longtext NOT NULL,
-  `date` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6)
+  `date` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -62,6 +62,34 @@ INSERT INTO `news` (`id`, `title`, `description`, `date`) VALUES
 (1, 'bg', 'b', '0000-00-00 00:00:00.000000'),
 (2, 'bg', 'b', '0000-00-00 00:00:00.000000'),
 (3, 'fa', '<p>faafa</p>', '2020-03-19 13:09:34.000000');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `password_reset`
+--
+
+CREATE TABLE `password_reset` (
+  `id` int(11) NOT NULL,
+  `email` varchar(1000) NOT NULL,
+  `reset_token` mediumtext NOT NULL,
+  `time` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `password_reset`
+--
+
+INSERT INTO `password_reset` (`id`, `email`, `reset_token`, `time`) VALUES
+(1, 'nebstartrizzle@gmail.com', '', '2020-03-20 15:48:43.041705'),
+(2, 'nebstartrizzle@gmail.com', '2b9b98a7bf094037d417889dedbf1d60', '2020-03-20 15:53:55.224151'),
+(3, 'w@g.c', '4c8e1e88f369b378c6913b72d40b5a43', '2020-03-20 16:06:00.412983'),
+(4, 'w@d', 'e0ae8b7645812c3dedd82b2314b5764b', '2020-03-20 16:06:23.626072'),
+(5, 'w@d', 'e121b51c1d477975d4fc48e71ddb20a0', '2020-03-20 16:08:13.122803'),
+(6, 'nebstartrizzle@gmail.com', '8c5e71b0dcf81d8237d70e6a00776564', '2020-03-20 16:12:54.389430'),
+(7, 'nebstartrizzle@gmail.com', '1da569a51c49c056b0a9517698886208', '2020-03-20 16:15:21.131749'),
+(8, 'nebstartrizzle@gmail.com', '817f6555dbae9bc7094cc4a11a3223d4', '2020-03-20 16:15:39.467489'),
+(9, 'nebstartrizzle@gmail.com', '70be26f963b9306caa962a33977e8d28', '2020-03-20 16:16:08.854311');
 
 -- --------------------------------------------------------
 
@@ -81,7 +109,7 @@ CREATE TABLE `properties` (
   `garage` varchar(343) NOT NULL,
   `description` longtext NOT NULL,
   `image` text NOT NULL,
-  `added_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `added_on` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -121,7 +149,7 @@ INSERT INTO `queries` (`id`, `email`, `subject`, `body`) VALUES
 CREATE TABLE `subscribers` (
   `id` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `subscribed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `subscribed_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -147,6 +175,12 @@ ALTER TABLE `admin`
 -- Indexes for table `news`
 --
 ALTER TABLE `news`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `password_reset`
+--
+ALTER TABLE `password_reset`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -182,6 +216,12 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `news`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `password_reset`
+--
+ALTER TABLE `password_reset`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `properties`
