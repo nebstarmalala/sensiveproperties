@@ -117,6 +117,63 @@ $properties = mysqli_query($dbconnect,"select * from properties" );
                 </div>
             </div>
         </div>
+        <!-- Search Form Section Begin -->
+    <div class="search-form">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="search-form-text">
+                        <div class="search-text">
+                            <i class="fa fa-search"></i>
+                            Find Your Home
+                        </div>
+                        <div class="home-text">
+                            <i class="fa fa-home"></i>
+                            House For Sell
+                        </div>
+                    </div>
+                    <form action="#" class="filter-form">
+                        <div class="first-row">
+                            <select>
+                                <option value="">Villa & Pool</option>
+                            </select>
+                            <select>
+                                <option value="">Title</option>
+                            </select>
+                            <select>
+                                <option value="">Ani City</option>
+                            </select>
+                            <select>
+                                <option value="">Any Bithrooms</option>
+                            </select>
+                        </div>
+                        <div class="second-row">
+                            <select>
+                                <option value="">Any Bedrooms</option>
+                            </select>
+                            <div class="price-range-wrap">
+                                <div class="price-text">
+                                    <label for="priceRange">Price:</label>
+                                    <input type="text" id="priceRange" readonly>
+                                </div>
+                                <div id="price-range" class="slider"></div>
+                            </div>
+                            <div class="room-size-range">
+                                <div class="price-text">
+                                    <label for="roomsizeRange">Size:</label>
+                                    <input type="text" id="roomsizeRange" readonly>
+                                </div>
+                                <div id="roomsize-range" class="slider"></div>
+                            </div>
+                            <button type="button" class="search-btn">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Search Form Section End -->
+
     
 
     <!-- Property Section Begin -->
