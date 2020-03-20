@@ -155,7 +155,7 @@
                     <div class="properties-title">
                         <div class="section-title">
                             <span>Top Property For You</span>
-                            <h2>subscribers</h2>
+                            <h2>Top Property</h2>
                         </div>
                         <a href="#" class="top-property-all">View All Property</a>
                     </div>

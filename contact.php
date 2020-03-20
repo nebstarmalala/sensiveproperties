@@ -127,7 +127,6 @@ if (isset($_POST['subscribe'])) {
                             <ul>
                                 <li><a href="./index.php">Home</a></li>
                                 <li><a href="#">Property</a></li>
-                                <li><a href="#">Agets</a></li>
                                 <li><a href="./blog.php">News</a></li>
                                 <li class="active"><a href="./contact.php">Contact</a></li>
                             </ul>
