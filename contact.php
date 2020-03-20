@@ -133,7 +133,7 @@ if (isset($_POST['subscribe'])) {
                         <nav class="main-menu">
                             <ul>
                                 <li><a href="./index.php">Home</a></li>
-                                <li><a href="#">Property</a></li>
+                                <li><a href="./property">Property</a></li>
                                 <li><a href="./blog.php">News</a></li>
                                 <li class="active"><a href="./contact.php">Contact</a></li>
                             </ul>
