@@ -90,7 +90,6 @@
                                 </div></li>
                                 <li class="active"><a href="./index.php">Home</a></li>
                                 <li><a href="./property.php">Property</a></li>
-                                <li><a href="./about-us.php">Agets</a></li>
                                 <li><a href="./blog.php">News</a></li>
                                 <li><a href="./contact.php">Contact</a></li>
                             </ul>
