@@ -180,8 +180,8 @@ $properties = mysqli_query($dbconnect,"select * from properties" );
                                         <td><?php echo $property['price'] ?></td>
                                         <td><?php echo $property['added_on'] ?></td>
                                         <td>
-                                            <a href="#"><i class="far fa-edit" style="font-size:24px;margin-right:15px;"></i> 
-                                            <a href="#"><i class="fas fa-trash-alt"  style="font-size:24px;"></i> 
+                                            <a href="editproperty.php?id=<?php echo $property['id'] ?>"><i class="far fa-edit" style="font-size:24px;margin-right:15px;"></i></a> 
+                                            <a href="#"><i class="fas fa-trash-alt"  style="font-size:24px;"></i></a> 
                                         </td>
                                     </tr>
                                 <?php } ?>
