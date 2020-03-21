@@ -1,4 +1,7 @@
 <?php 
+
+require_once(__DIR__ . '../../vendor/autoload.php');
+use PHPMailer\PHPMailer\PHPMailer;
 /*echo sha1("password");*/
 include('connect.php');
    if (isset($_POST['reset'])) {
@@ -24,14 +27,40 @@ include('connect.php');
   
                 $insert= mysqli_query($dbconnect,"INSERT INTO `password_reset`(`email`,`reset_token`) VALUES ('$email','$token')");
                 if($insert){
-                    global $msg;
-                    $msg .= "we have sent a password reset email";
-                }else{
-                  $error .= "an error occured";
+
+                    try{
+                         // send email
+                        $mail = new PHPMailer();
+                        $mail->isSMTP();
+                        $mail->Host = 'smtp.mailtrap.io';
+                        $mail->SMTPAuth = true;
+                        $mail->Username = 'd4ddd996baff19';
+                        $mail->Password = '912f2078611dbc';
+                        $mail->SMTPSecure = 'tls';
+                        $mail->Port = 2525;
+
+                        $mail->setFrom('info@sensiveproperties.com', 'Sensive Properties');
+                        $mail->addReplyTo('info@sensiveproperties.com', 'Sensive Properties');
+                        $mail->addAddress('sensiveproperties@gmail.com');
+                        $mail->Subject = 'Password Reset - Sensive Properties';
+                        $mail->isHTML(true);
+                        $mail->isHTML(true);                                  // Set email format to HTML
+                        $mail->Subject = 'Password Reset';
+                        $mail->Body    = 'You are receiving this mail because we have received a password reset request for your sensive properties account. Click the link :<a href="http://localhost/projects/sensiveproperties/admin/reset.php?reset_token=$token">http://localhost/projects/sensiveproperties/admin/reset.php?reset_token=$token</a> To reset your password ';
+                    
+                        $mail->send();
+                        global $msg;
+                        $msg .= "we have sent a password reset email";
+                    }catch (Exception $e) {
+                        global $error;
+                        $error .= "we could not send an email. Try Again";
+
+                    }
+                  
                 }
-            }
             
-        } 
+            } 
+   }
 ?> 
 <!DOCTYPE html>
 <html lang="en">
