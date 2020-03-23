@@ -1,52 +1,3 @@
-<?php
-
-  include('connect.php');
-  $query = mysqli_query($dbconnect,"select * from properties" );
-
-  if (isset($_POST['subscribe'])) {
-      
-      
-    $email =mysqli_real_escape_string ($dbconnect,$_POST['subscribe']);
-    $created_at =date("Y-m-d H:i:s",time());
-    
-    function isValidEmail($email){ 
-      global $error;
-        $pattern = "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i"; 
-    
-        if (!preg_match( $pattern,$email)){
-            $error .="email not valid";
-        } 
-          
-     } 
-     
-     isValidEmail($email);
-
-      if (empty($error)) {
-          $check_email = mysqli_query($dbconnect,"SELECT email FROM `subscribers` WHERE `email` = '$email'");
-          if (mysqli_num_rows($check_email) > 0) {
-              $error .= "Email already exists";
-          }
-
-          if (empty($error)) {   
-              $encrypted_password = sha1($password);
-
-              $insert = mysqli_query($dbconnect,"INSERT INTO `subscribers` (`email`,`subscribed_at`) VALUES ('$email','$created_at')");
-              if($insert){
-                  header('location:index.php');
-              }else{
-                $error .= "an error occured";
-              }
-          }
-          
-      }
-  }
-?>
-<?php 
-
-include('connect.php');
-$properties = mysqli_query($dbconnect,"select * from properties" );
-
-?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -113,38 +64,7 @@ $properties = mysqli_query($dbconnect,"select * from properties" );
     <section class="hero-section">
         <div class="hero-items">
             <div class="single-hero-item set-bg" data-setbg="img/hero/hero-3.jpg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 offset-lg-2">
-                            <div class="hero-text">
-                                <p class="room-location"><i class="icon_pin"></i> Your Location</p>
-                                <h2>Your Sensive Home</h2>
-                                <div class="room-price">
-                                    <span>Price:</span>
-                                    <p>$Your Price</p>
-                                </div>
-                                <ul class="room-features">
-                                    <li>
-                                        <i class="fa fa-arrows"></i>
-                                        <p>various sqft(s)</p>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-bed"></i>
-                                        <p>upto 8 Bedrooms</p>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-bath"></i>
-                                        <p>upto 7 Bathsbed</p>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-car"></i>
-                                        <p> Garage</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
         </div>
     </section>
@@ -154,67 +74,44 @@ $properties = mysqli_query($dbconnect,"select * from properties" );
     <!-- Feature Section Begin -->
     
     <!-- subscribers Section Begin -->
-    <div class="top-properties-section spad">
-        <div class="container">
+    <div class="top-properties-section spad container">
+        <div>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="properties-title">
                         <div class="section-title">
-                            <span>Top Property For You</span>
-                            <h2>Top Property</h2>
+                            <h2>About Us</h2>
                         </div>
-                        <a href="#" class="top-property-all">View All Property</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="top-properties-carousel owl-carousel">
-                <div class="single-top-properties">
-                <?php while ($property=mysqli_fetch_assoc($properties)) { ?>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="stp-pic">
-                                <img src="uploads/<?php echo $property['image'] ?>" alt="">
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="stp-text">
-                                <div class="s-text"><?php echo $property['sale_type'] ?></div>
-                                <h3><?php echo $property['title'] ?></h3>
-                                <div class="room-price">
-                                    <span>Start From:</span>
-                                    <h4><?php echo $property['price'] ?></h4>
-                                </div>
-                                <div class="properties-location"><i class="icon_pin"></i> </i> <?php echo $property['location'] ?></div>
-                                <p><?php echo $property['description'] ?></p>
-                                <ul class="room-features">
-                                    <li>
-                                        <i class="fa fa-arrows"></i>
-                                        <p><?php echo $property['area'] ?> sqft</p>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-bed"></i>
-                                        <p><?php echo $property['bedrooms'] ?></p>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-bath"></i>
-                                        <p>7 Baths Bed</p>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-car"></i>
-                                        <p><?php echo $property['garage'] ?></p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                <?php } ?>
-                </div>
-                
-            </div>
-        </div>
+        <h3>Company Overview</h3>
+        <br>
+        <p> Sensive Properties is a real estate services firm focused on delivering high quality and customized services to individuals,
+            the private sector and government clients in Kenya. The firm, 
+            duly incorporated under the companies Act Cap 486 in 1994, 
+            began operations with a team of only four members of staff but has now grown to over two hundred and the initial five clients have multiplied many times over.
+            Today, the company has made its presence strongly felt in the Kenyan property market and can with certainty declare itself a market leader.
+            The firm offers a wide scope of real estate services, particularly specializing in real estate consultancy, 
+            management and sale of residential properties and a variety of commercial properties in Nairobi, Mombasa and East African region.
+        </p>
+        <p> Sensive Properties has expertise in both rental property and property for sale in Kenya. 
+            In over two decades of its existence, Sensive Properties Has definitely impacted housing in Kenya in a big way. 
+            With one of the largest property listings by a property Agent in Kenya, Sensive Properties continues  to epitomize its mantra of caring, always.
+            Sensive Properties offers highly specialized and professional property management services in Kenya. 
+            This is on the backbone of decades of experience and the use of the state of the art technology. 
+            The use of a cloud based, internationally proven software solution allows real time access of tenants and landlords data. 
+            The professionalism and seamless property management of Sensive Properties are unmatched in the region.
+        </p>
+        <br>
+        <h3>Management Team</h3>
+        <br>
+        <p> Sensive Properties is led by a diverse, seasoned management team, each possessing extensive experience with leading property development and real estate management firms in the country. Undoubtedly, 
+            our success in both the residential and commercial property markets in Kenya and particularly in Nairobi is drawn from our immensely rich personnel base whose vast experience and expertise in the real estate industry has been demonstrated very ably for the past 21 years.
+            The team consists of young, highly motivated and multidisciplinary graduates who are actively involved in consultancy, marketing, development, letting and management of both residential and commercial properties.
+        </p>
+        
     </div>
     <!-- subscribers Section End -->
 
