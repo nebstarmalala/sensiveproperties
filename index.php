@@ -96,13 +96,7 @@ $properties = mysqli_query($dbconnect,"select * from properties" );
                     <div class="col-lg-12">
                         <nav class="main-menu">
                             <ul>
-                                <li><div class="col-lg-3">
-                                    <div class="logo">
-                                        <a href="./index.php"><img src="img/logo.png" alt=""></a>
-                                    </div>
-                                </div></li>
                                 <li class="active"><a href="./index.php">Home</a></li>
-                                <li><a href="./property.php">Property</a></li>
                                 <li><a href="./blog.php">News</a></li>
                                 <li><a href="./contact.php">Contact</a></li>
                             </ul>
@@ -187,7 +181,7 @@ $properties = mysqli_query($dbconnect,"select * from properties" );
                         <div class="col-lg-6">
                             <div class="stp-text">
                                 <div class="s-text"><?php echo $property['sale_type'] ?></div>
-                                <h2><?php echo $property['title'] ?></h2>
+                                <h3><?php echo $property['title'] ?></h3>
                                 <div class="room-price">
                                     <span>Start From:</span>
                                     <h4><?php echo $property['price'] ?></h4>

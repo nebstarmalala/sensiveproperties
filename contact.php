@@ -111,7 +111,9 @@ if (isset($_POST['subscribe'])) {
         a:link, a:visited {
         text-decoration: none;
         }
-
+        h2{
+            color:white !important;
+        }
        
         </style>
 </head>
@@ -133,7 +135,6 @@ if (isset($_POST['subscribe'])) {
                         <nav class="main-menu">
                             <ul>
                                 <li><a href="./index.php">Home</a></li>
-                                <li><a href="./property">Property</a></li>
                                 <li><a href="./blog.php">News</a></li>
                                 <li class="active"><a href="./contact.php">Contact</a></li>
                             </ul>
@@ -143,24 +144,7 @@ if (isset($_POST['subscribe'])) {
     </header>
     <!-- Header End -->
 
-    <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section contact-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb-text">
-                        <h2>Contact Us</h2>
-                        <div class="breadcrumb-option">
-                            <a href="#"><i class="fa fa-home"></i> Home</a>
-                            <span>Contact</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Breadcrumb Section Begin -->
-
+  
     <!-- Contact Section Begin -->
     <section class="contact-section single-hero-item set-bg"  data-setbg="img/hero/hero-3.jpg">
         <div class="container-fluid">
@@ -171,7 +155,6 @@ if (isset($_POST['subscribe'])) {
                         <div class="col-lg-7 offset-lg-6">
                             <div class="contact-text">
                                 <div class="section-title">
-                                    <span>Contact</span>
                                     <h2 stye="color:white;">Get In Touch</h2>
                                 </div>
                                 <form action="contact.php" class="contact-form" method="post" novalidate="novalidate">
