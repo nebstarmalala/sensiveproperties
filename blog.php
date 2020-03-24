@@ -71,7 +71,8 @@
         a:link, a:visited {
         text-decoration: none;
         }
-        h2,h3{
+        
+        h3{
             color:white !important;
         }
        
@@ -105,28 +106,39 @@
     </header>
     <!-- Header End -->
 
-    <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb-text">
-                        <h2>Blog List</h2>
-                        <div class="breadcrumb-option">
-                            <a href="#"><i class="fa fa-home"></i> Home</a>
-                            <span>Blog Default</span>
+     <!-- Hero Section Begin -->
+     <section class="hero-section">
+        <div class="hero-items">
+            <div class="single-hero-item set-bg" data-setbg="img/hero/hero-3.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2">
+                            <div class="hero-text">
+                                
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Breadcrumb Section Begin -->
+    <!-- Hero Section End -->
 
     <!-- Blog Section Begin -->
     <section class="blog-section blog-page spad">
         <div class="container">
             <div class="row">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="properties-title">
+                            <div class="section-title">
+                                
+                                <h2>News</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
                 
                 <div class="col-lg-4 col-md-6">
                     <div class="single-blog-item">
