@@ -913,7 +913,7 @@ ul, ol {
 	margin-bottom: 16px;
 }
 .top-properties-carousel .single-top-properties .stp-text .room-price {
-	margin-bottom: 18px;
+	margin-bottom: 10px;
 }
 .top-properties-carousel .single-top-properties .stp-text .room-price span {
 	font-size: 14px;
@@ -929,14 +929,14 @@ ul, ol {
 .top-properties-carousel .single-top-properties .stp-text .properties-location {
 	font-size: 14px;
 	color: #19191a;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 .top-properties-carousel .single-top-properties .stp-text .properties-location i {
 	color: #2cbdb8;
 	margin-right: 4px;
 }
 .top-properties-carousel .single-top-properties .stp-text P {
-	margin-bottom: 43px;
+	margin-bottom: 22px;
 }
 .top-properties-carousel .single-top-properties .stp-text .room-features li {
 	list-style: none;
