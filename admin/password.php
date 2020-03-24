@@ -29,6 +29,13 @@ include('connect.php');
                 if($insert){
 
                     try{
+                        // Retrieve the email template required
+                        $email_message = file_get_contents('reset_mail.html');
+
+                        // Replace the % with the actual information
+                        $email_message = str_replace('%token%', $token, $email_message);
+                       
+
                          // send email
                         $mail = new PHPMailer();
                         $mail->isSMTP();
@@ -45,8 +52,8 @@ include('connect.php');
                         $mail->Subject = 'Password Reset - Sensive Properties';
                         $mail->isHTML(true);
                         $mail->isHTML(true);                                  // Set email format to HTML
-                        $mail->Subject = " ";
-                        $mail->Body    = " ";
+                        $mail->MsgHTML($email_message);
+					    $mail->AltBody = strip_tags($email_message);
                     
                         $mail->send();
                         global $msg;
