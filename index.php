@@ -75,7 +75,9 @@ $properties = mysqli_query($dbconnect,"select * from properties" );
         a:link, a:visited {
         text-decoration: none;
         }
-
+        h3{
+            color:white !important;
+        }
        
         </style>
 </head>
@@ -98,6 +100,7 @@ $properties = mysqli_query($dbconnect,"select * from properties" );
                             <ul>
                                 <li class="active"><a href="./index.php">Home</a></li>
                                 <li><a href="./blog.php">News</a></li>
+                                <li><a href="./aboutus.php">About Us</a></li>
                                 <li><a href="./contact.php">Contact</a></li>
                             </ul>
                         </nav>
@@ -160,10 +163,9 @@ $properties = mysqli_query($dbconnect,"select * from properties" );
                 <div class="col-lg-12">
                     <div class="properties-title">
                         <div class="section-title">
-                            <span>Top Property For You</span>
-                            <h2>Top Property</h2>
+                            <span>Top Properties For You</span>
+                            <h2>Top Properties</h2>
                         </div>
-                        <a href="#" class="top-property-all">View All Property</a>
                     </div>
                 </div>
             </div>
@@ -173,21 +175,21 @@ $properties = mysqli_query($dbconnect,"select * from properties" );
                 <div class="single-top-properties">
                 <?php while ($property=mysqli_fetch_assoc($properties)) { ?>
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-5">
                             <div class="stp-pic">
                                 <img src="uploads/<?php echo $property['image'] ?>" alt="">
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-7">
                             <div class="stp-text">
                                 <div class="s-text"><?php echo $property['sale_type'] ?></div>
-                                <h3><?php echo $property['title'] ?></h3>
+                                <h4><?php echo $property['title'] ?></h4>
                                 <div class="room-price">
                                     <span>Start From:</span>
                                     <h4><?php echo $property['price'] ?></h4>
                                 </div>
                                 <div class="properties-location"><i class="icon_pin"></i> </i> <?php echo $property['location'] ?></div>
-                                <p><?php echo $property['description'] ?></p>
+                                <p><?php echo substr($property['description'],0,50,)."..." ?></p>
                                 <ul class="room-features">
                                     <li>
                                         <i class="fa fa-arrows"></i>
@@ -204,6 +206,9 @@ $properties = mysqli_query($dbconnect,"select * from properties" );
                                     <li>
                                         <i class="fa fa-car"></i>
                                         <p><?php echo $property['garage'] ?></p>
+                                    </li>
+                                    <li>
+                                        <a href="property-single.php" class="top-property-all">View  Property</a>
                                     </li>
                                 </ul>
                             </div>
@@ -232,9 +237,7 @@ $properties = mysqli_query($dbconnect,"select * from properties" );
                             </div>
                         <?php } ?>
                         <div class="footer-logo">
-                            <div class="logo">
-                                <a href="#"><img src="img/footer-logo.png" alt=""></a>
-                            </div>
+                        <h3>Newsletter</h3>
                             <p>Subscribe our newsletter gor get notification about new updates.</p>
                             <form action="index.php" class="newslatter-form" method="post">
                                 <input type="text" placeholder="Enter your email..." name="subscribe">

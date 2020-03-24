@@ -26,7 +26,9 @@
         a:link, a:visited {
         text-decoration: none;
         }
-
+        h2,h3{
+            color:white !important;
+        }
        
         </style>
 </head>
@@ -47,8 +49,9 @@
                     <div class="col-lg-12">
                         <nav class="main-menu">
                             <ul>
-                                <li class="active"><a href="./index.php">Home</a></li>
+                                <li><a href="./index.php">Home</a></li>
                                 <li><a href="./blog.php">News</a></li>
+                                <li class="active"><a href="./aboutus.php">About Us</a></li>
                                 <li><a href="./contact.php">Contact</a></li>
                             </ul>
                         </nav>
@@ -129,9 +132,7 @@
                             </div>
                         <?php } ?>
                         <div class="footer-logo">
-                            <div class="logo">
-                                <a href="#"><img src="img/footer-logo.png" alt=""></a>
-                            </div>
+                        <h3>Newsletter</h3>
                             <p>Subscribe our newsletter gor get notification about new updates.</p>
                             <form action="index.php" class="newslatter-form" method="post">
                                 <input type="text" placeholder="Enter your email..." name="subscribe">

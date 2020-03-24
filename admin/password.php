@@ -45,8 +45,8 @@ include('connect.php');
                         $mail->Subject = 'Password Reset - Sensive Properties';
                         $mail->isHTML(true);
                         $mail->isHTML(true);                                  // Set email format to HTML
-                        $mail->Subject = 'Password Reset';
-                        $mail->Body    = 'You are receiving this mail because we have received a password reset request for your sensive properties account. Click the link :<a href="http://localhost/projects/sensiveproperties/admin/reset.php?reset_token=$token">http://localhost/projects/sensiveproperties/admin/reset.php?reset_token=$token</a> To reset your password ';
+                        $mail->Subject = " ";
+                        $mail->Body    = " ";
                     
                         $mail->send();
                         global $msg;

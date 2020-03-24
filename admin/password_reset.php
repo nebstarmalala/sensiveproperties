@@ -1,6 +1,22 @@
 <?php 
-/*echo sha1("password");*/
 include('connect.php');
+ $token=$_GET['reset_token'];
+ $error = '';
+
+ if (empty($token)){
+       header("location:login.php");
+ }
+
+ $check_token = mysqli_query($dbconnect,"SELECT reset_token FROM `password_reset` WHERE `reset_token` = '$token' ");
+    if (mysqli_num_rows($check_token) !== 1) {
+        global $error;
+        $error .= "invalid token";
+    }
+
+
+/*echo sha1("password");*/
+
+
    if (isset($_POST['submit'])) {
 
         $email = $_POST['email'];
@@ -55,7 +71,7 @@ include('connect.php');
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Reset Password</h3></div>
                                     <div class="card-body">
                                     
                                         <form action="password_reset.php" method="post">
@@ -73,15 +89,11 @@ include('connect.php');
                                                 <strong>success!</strong> <?php  echo $msg  ?>
                                             </div>
                                         <?php } ?>
-                                            <div class="form-group" ><label class="small mb-1" for="inputEmailAddress">Email</label><input class="form-control py-4" id="inputEmailAddress" type="email" name="email" placeholder="Enter email address" /></div>
-                                            <div class="form-group" ><label class="small mb-1" for="inputPassword">Password</label><input class="form-control py-4" id="inputPassword" type="password" name="password" placeholder="Enter password" /></div>
+                                            <div class="form-group" ><label class="small mb-1" for="inputPassword">New Password</label><input class="form-control py-4" id="inputPassword" type="password" name="password" placeholder="Enter new password" /></div>
                                             <div class="form-group" ><label class="small mb-1" for="inputPassword">Confirm Password</label><input class="form-control py-4" id="inputPassword" type="password" name="confirmpassword" placeholder="Confirm password" /></div>
                                             
-                                            
-                                            <div class="form-group">
-                                                <div class="custom-control custom-checkbox"><input class="custom-control-input" id="rememberPasswordCheck" type="checkbox" /><label class="custom-control-label" for="rememberPasswordCheck">Remember password</label></div>
-                                            </div>
-                                            <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0"><a class="small" href="password.php">Forgot Password? </a><button class="btn btn-primary" type="submit" name="submit">Login</button></div>
+                                        
+                                            <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0"><button class="btn btn-primary" type="submit" name="submit">Login</button></div>
                                            
                                     </div>
                                 </div>
