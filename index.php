@@ -189,7 +189,7 @@ $properties = mysqli_query($dbconnect,"select * from properties" );
                                     <h4><?php echo $property['price'] ?></h4>
                                 </div>
                                 <div class="properties-location"><i class="icon_pin"></i> </i> <?php echo $property['location'] ?></div>
-                                <p><?php echo substr($property['description'],0,50,)."..." ?></p>
+                                <p><?php echo substr($property['description'],0,50)."..."; ?></p>
                                 <ul class="room-features">
                                     <li>
                                         <i class="fa fa-arrows"></i>
