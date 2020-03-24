@@ -4,7 +4,8 @@ include('connect.php');
  $error = '';
 
  if (empty($token)){
-       header("location:login.php");
+      header("location:login.php");
+      echo $token;
  }
 
  $check_token = mysqli_query($dbconnect,"SELECT reset_token FROM `password_reset` WHERE `reset_token` = '$token' ");
@@ -13,35 +14,40 @@ include('connect.php');
         $error .= "invalid token";
     }
 
+    if(empty($error)){
+        
+        if (isset($_POST['submit'])) {
+
+            $email = $_POST['email'];
+            $password = sha1($_POST['password']);
+            $confirm_password= sha1($_POST['confirmpassword']);
+            $error = '';
+            $msg = '';
+    
+            if($password==$confirm_password){
+                $update_admin = mysqli_query($dbconnect,"UPDATE `admin` SET `password`='$password' WHERE `email`='$email'");
+                if ($update_admin) {
+                    global $msg;
+                    $msg .= "credentials have been updated successfully";
+                    header("location:index.php");
+                }else{
+                   global $error;
+                   $error .= "invalid username or password";  
+                }   
+    
+            }else{
+                global $error;
+                $error .= "password do not match";
+            }
+        }
+    }    
+
+   
 
 /*echo sha1("password");*/
 
 
-   if (isset($_POST['submit'])) {
-
-        $email = $_POST['email'];
-        $password = sha1($_POST['password']);
-        $confirm_password= sha1($_POST['confirmpassword']);
-        $error = '';
-        $msg = '';
-
-        if($password==$confirm_password){
-            $update_admin = mysqli_query($dbconnect,"UPDATE `admin` SET `password`='$password' WHERE `email`='$email'");
-            if ($update_admin) {
-                global $msg;
-                $msg .= "credentials have been updated successfully";
-                header("location:index.php");
-            }else{
-               global $error;
-               $error .= "invalid username or password";  
-            }   
-
-        }else{
-            global $error;
-            $error .= "password do not match";
-        }
- 
-    }
+   
 ?> 
 
 <!DOCTYPE html>
