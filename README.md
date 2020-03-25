@@ -6,4 +6,5 @@ Built with php
 * `cd sensiveproperties `
 * Create db and import tables from `sensiveproperties.sql`
 * Run `composer install`
+* Save as the `.env.example` to `.env` and set your database and mail information 
 * Done
