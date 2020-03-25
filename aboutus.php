@@ -26,7 +26,7 @@
         a:link, a:visited {
         text-decoration: none;
         }
-        h2,h3{
+        h3{
             color:white !important;
         }
        
@@ -89,7 +89,7 @@
                 </div>
             </div>
         </div>
-        <h3>Company Overview</h3>
+        <h4>Company Overview</h4>
         <br>
         <p> Sensive Properties is a real estate services firm focused on delivering high quality and customized services to individuals,
             the private sector and government clients in Kenya. The firm, 
@@ -108,7 +108,7 @@
             The professionalism and seamless property management of Sensive Properties are unmatched in the region.
         </p>
         <br>
-        <h3>Management Team</h3>
+        <h4>Management Team</h4>
         <br>
         <p> Sensive Properties is led by a diverse, seasoned management team, each possessing extensive experience with leading property development and real estate management firms in the country. Undoubtedly, 
             our success in both the residential and commercial property markets in Kenya and particularly in Nairobi is drawn from our immensely rich personnel base whose vast experience and expertise in the real estate industry has been demonstrated very ably for the past 21 years.
@@ -118,78 +118,10 @@
     </div>
     <!-- subscribers Section End -->
 
-    <!-- Footer Section Begin -->
-    <footer class="footer-section set-bg" data-setbg="img/footer-bg.jpg">
-        <div class="container">
-            <div class="footer-text">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <?php 
-                            if (!empty($error)){ ?>
-                            <div class="alert alert-danger alert-dismissible col-md-12">
-                                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                <strong>Error!</strong> <?php  echo $error  ?>
-                            </div>
-                        <?php } ?>
-                        <div class="footer-logo">
-                        <h3>Newsletter</h3>
-                            <p>Subscribe our newsletter gor get notification about new updates.</p>
-                            <form action="index.php" class="newslatter-form" method="post">
-                                <input type="text" placeholder="Enter your email..." name="subscribe">
-                                <button type="submit" name="submit"><i class="fa fa-location-arrow"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 offset-lg-1">
-                        <div class="footer-widget">
-                            <h4>Property City</h4>
-                            <ul>
-                                <li><i class="fa fa-caret-right"></i> <a href="#">Florida</a></li>
-                                <li><i class="fa fa-caret-right"></i> <a href="#">New York</a></li>
-                                <li><i class="fa fa-caret-right"></i> <a href="#">Washington</a></li>
-                                <li><i class="fa fa-caret-right"></i> <a href="#">Los Angeles</a></li>
-                            </ul>
-                            <ul>
-                                <li><i class="fa fa-caret-right"></i> <a href="#">St Louis</a></li>
-                                <li><i class="fa fa-caret-right"></i> <a href="#">Jacksonville</a></li>
-                                <li><i class="fa fa-caret-right"></i> <a href="#">San Jose</a></li>
-                                <li><i class="fa fa-caret-right"></i> <a href="#">San Diego</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="footer-widget">
-                            <h4>Social</h4>
-                            <ul class="social">
-                                <li><i class="ti-facebook"></i> <a href="#">Facebook</a></li>
-                                <li><i class="ti-instagram"></i> <a href="#">Instagram</a></li>
-                                <li><i class="ti-twitter-alt"></i> <a href="#">Twitter</a></li>
-                                <li><i class="ti-google"></i> <a href="#">Google+</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="footer-widget">
-                            <h4>Contact Us</h4>
-                            <ul class="contact-option">
-                                <li><i class="fa fa-map-marker"></i> 16 Creek Ave. Farming, NY</li>
-                                <li><i class="fa fa-phone"></i> (+88) 666 121 4321</li>
-                                <li><i class="fa fa-envelope"></i> info.colorlib@gmail.com</li>
-                                <li><i class="fa fa-clock-o"></i> Mon - Sat, 08 AM - 06 PM</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright-text">
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-            </div>
-        </div>
-    </footer>
-    <!-- Footer Section End -->
+ <?php include("footer.php") ?>
 
     <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/jquery.nice-select.min.js"></script>
