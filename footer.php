@@ -2,8 +2,9 @@
     <?php
 
   include('connect.php');
-  $query = mysqli_query($dbconnect,"select * from properties" );
-
+  $msg = '';
+  $error = '';
+ 
   if (isset($_POST['subscribe'])) {
       
       
@@ -15,6 +16,7 @@
         $pattern = "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i"; 
     
         if (!preg_match( $pattern,$email)){
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
             $error .="email not valid";
         } 
           
@@ -25,6 +27,7 @@
       if (empty($error)) {
           $check_email = mysqli_query($dbconnect,"SELECT email FROM `subscribers` WHERE `email` = '$email'");
           if (mysqli_num_rows($check_email) > 0) {
+              header('Location: ' . $_SERVER['HTTP_REFERER']);
               $error .= "Email already exists";
           }
 
@@ -33,8 +36,11 @@
 
               $insert = mysqli_query($dbconnect,"INSERT INTO `subscribers` (`email`,`subscribed_at`) VALUES ('$email','$created_at')");
               if($insert){
-                  header('location:index.php');
+                global $msg;
+                  header('Location: ' . $_SERVER['HTTP_REFERER']);
+                  $msg .= "subscribed";
               }else{
+                header('Location: ' . $_SERVER['HTTP_REFERER']);
                 $error .= "an error occured";
               }
           }
@@ -54,10 +60,17 @@
                                 <strong>Error!</strong> <?php  echo $error  ?>
                             </div>
                         <?php } ?>
+                        <?php 
+                            if (!empty($msg)){ ?>
+                            <div class="alert alert-success alert-dismissible col-md-12">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <strong>Success!</strong> <?php  echo $msg  ?>
+                            </div>
+                        <?php } ?>
                         <div class="footer-logo">
                         <h3>Newsletter</h3>
                             <p>Subscribe our newsletter gor get notification about new updates.</p>
-                            <form action="index.php" class="newslatter-form" method="post">
+                            <form action="footer.php" class="newslatter-form" method="post">
                                 <input type="text" placeholder="Enter your email..." name="subscribe">
                                 <button type="submit" name="submit"><i class="fa fa-location-arrow"></i></button>
                             </form>
