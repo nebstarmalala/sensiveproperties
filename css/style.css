@@ -68,7 +68,7 @@ p {
 	color: #707079;
 	font-weight: 400;
 	line-height: 26px;
-	margin: 0 0 15px 0;
+	margin: 0 0 0 0;
 }
 img {
 	max-width: 100%;
@@ -861,7 +861,7 @@ ul, ol {
 	padding: 12px 30px;
 	display: inline-block;
 	float: right;
-	margin-top: 32px;
+	margin-top: 10px;
 }
 .top-properties-carousel.owl-carousel .owl-nav button[type=button] {
 	width: 26px;
@@ -936,7 +936,7 @@ ul, ol {
 	margin-right: 4px;
 }
 .top-properties-carousel .single-top-properties .stp-text P {
-	margin-bottom: 43px;
+	margin-bottom: 30px;
 }
 .top-properties-carousel .single-top-properties .stp-text .room-features li {
 	list-style: none;
