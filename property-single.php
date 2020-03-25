@@ -104,73 +104,17 @@
                     <div class="col-lg-7">
                         <nav class="main-menu">
                             <ul>
-                                <li><a href="./index.html">Home</a></li>
-                                <li class="active"><a href="./property.html">Property</a></li>
-                                <li><a href="./about-us.html">Agets</a></li>
-                                <li><a href="./blog.html">News</a></li>
-                                <li><a href="./property-details.html">Pages</a></li>
-                                <li><a href="./contact.html">Contact</a></li>
+                                <li><a href="./index.php">Home</a></li>
+                                <li><a href="./blog.php">News</a></li>
+                                <li><a href="./aboutus.php">About Us</a></li>
+                                <li><a href="./contact.php">Contact</a></li>
                             </ul>
                         </nav>
                     </div>
-                    <div class="col-lg-5">
-                        <div class="top-right">
-                            <div class="language-option">
-                                <img src="img/flag.png" alt="">
-                                <span>English</span>
-                                <i class="fa fa-angle-down"></i>
-                                <div class="flag-dropdown">
-                                    <ul>
-                                        <li><a href="#">English</a></li>
-                                        <li><a href="#">Germany</a></li>
-                                        <li><a href="#">China</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <a href="#" class="property-sub">Submit Property</a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
-        <div class="nav-logo">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="logo">
-                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="nav-logo-right">
-                            <ul>
-                                <li>
-                                    <i class="icon_phone"></i>
-                                    <div class="info-text">
-                                        <span>Phone:</span>
-                                        <p>(+12) 345 6789</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class="icon_map"></i>
-                                    <div class="info-text">
-                                        <span>Address:</span>
-                                        <p>16 Creek Ave, <span>NY</span></p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class="icon_mail"></i>
-                                    <div class="info-text">
-                                        <span>Email:</span>
-                                        <p>Info.cololib@gmail.com</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     </header>
     <!-- Header End -->
 
@@ -217,13 +161,7 @@
             <div class="row">
                 <div class="col-lg-9">
                     <div class="pd-details-text">
-                        <div class="pd-details-social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-send"></i></a>
-                            <a href="#"><i class="fa fa-star"></i></a>
-                            <a href="#"><i class="fa fa-print"></i></a>
-                            <a href="#"><i class="fa fa-cloud-download"></i></a>
-                        </div>
+                        
                         <div class="property-more-pic">
                             <div class="product-pic-zoom">
                                 <img class="product-big-img" src="img/properties/property-details-b1.jpg" alt="">
@@ -243,15 +181,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="pd-desc">
-                            <h4>Description</h4>
-                            <p>Learn how to improve your playing quality and even overall understanding of online gaming
-                                and how you perform while playing online. Gaming online is a huge business nowadays and
-                                that means that there are millions of people worldwide at online game sites all the
-                                time. Many are people just like you and me that like to play online and have fun doing
-                                it. Some of these people enjoy it so much, that they often do not even care about
-                                improving their skill and raising their chances of winning.</p>
-                        </div>
+                       
                         <div class="pd-details-tab">
                             <div class="tab-item">
                                 <ul class="nav" role="tablist">
@@ -261,9 +191,7 @@
                                     <li>
                                         <a data-toggle="tab" href="#tab-2" role="tab">Description</a>
                                     </li>
-                                    <li>
-                                        <a data-toggle="tab" href="#tab-3" role="tab">Amenities</a>
-                                    </li>
+                                   
                                 </ul>
                             </div>
                             <div class="tab-item-content">
@@ -352,11 +280,7 @@
                                                 like you and me that like to play online and have fun doing it. Some of
                                                 these people enjoy it so much, that they often do not even care about
                                                 improving their skill and raising their chances of winning.</p>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="tab-3" role="tabpanel">
-                                        <div class="pd-table-amenities">
-                                            <p>Learn how to improve your playing quality and even overall understanding
+                                                <p>Learn how to improve your playing quality and even overall understanding
                                                 of online gaming and how you perform while playing online. Gaming online
                                                 is a huge business nowadays and that means that there are millions of
                                                 people worldwide at online game sites all the time. Many are people just
@@ -389,30 +313,27 @@
                         <div class="property-contactus">
                             <h4>Contact Us</h4>
                             <div class="row">
-                                <div class="col-lg-5">
-                                    <div class="agent-desc">
-                                        <img src="img/properties/agent-contact.jpg" alt="">
-                                        <div class="agent-title">
-                                            <h5>Adam Smith</h5>
-                                            <span>Saler Marketing</span>
+                                <div class="col-lg-12 contact-text">
+                                    <form action="contact.php" class="contact-form" method="post" novalidate="novalidate">
+                                    <?php 
+                                        if (!empty($error)){ ?>
+                                        <div class="alert alert-danger alert-dismissible col-md-12">
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                            <strong>Error!</strong> <?php  echo $error  ?>
                                         </div>
-                                        <div class="agent-social">
-                                            <a href="#"><i class="fa fa-facebook"></i></a>
-                                            <a href="#"><i class="fa fa-twitter"></i></a>
-                                            <a href="#"><i class="fa fa-google-plus"></i></a>
-                                            <a href="#"><i class="fa fa-envelope"></i></a>
+                                    <?php } ?>
+                                        <div>
+                                            <input type="email" placeholder="Email" name="email">
                                         </div>
-                                        <p>In today’s net-savvy world it has become common for any business to have a
-                                            website which they use mostly for advertising their products and services.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 offset-lg-1">
-                                    <form action="#" class="agent-contact-form">
-                                        <input type="text" placeholder="Name*">
-                                        <input type="text" placeholder="Email">
-                                        <textarea placeholder="Messages"></textarea>
-                                        <button type="submit" class="site-btn">Send Message</button>
+                                        <div>
+                                            <input type="text" placeholder="Subject" name="subject">
+                                        </div>
+                                        <div>
+                                            <textarea placeholder="Messages" name="body"></textarea>
+                                        </div>
+                                        <div>
+                                            <button type="submit" class="site-btn" name="submit">Send Message</button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -504,105 +425,10 @@
     </section>
     <!-- Property Details Section End -->
 
-    <!-- Partner Carousel Section Begin -->
-    <div class="partner-section">
-        <div class="container">
-            <div class="partner-carousel owl-carousel">
-                <a href="#" class="partner-logo">
-                    <div class="partner-logo-tablecell">
-                        <img src="img/partner/partner-1.png" alt="">
-                    </div>
-                </a>
-                <a href="#" class="partner-logo">
-                    <div class="partner-logo-tablecell">
-                        <img src="img/partner/partner-2.png" alt="">
-                    </div>
-                </a>
-                <a href="#" class="partner-logo">
-                    <div class="partner-logo-tablecell">
-                        <img src="img/partner/partner-3.png" alt="">
-                    </div>
-                </a>
-                <a href="#" class="partner-logo">
-                    <div class="partner-logo-tablecell">
-                        <img src="img/partner/partner-4.png" alt="">
-                    </div>
-                </a>
-                <a href="#" class="partner-logo">
-                    <div class="partner-logo-tablecell">
-                        <img src="img/partner/partner-5.png" alt="">
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-    <!-- Partner Carousel Section End -->
+    
 
     <!-- Footer Section Begin -->
-    <footer class="footer-section set-bg" data-setbg="img/footer-bg.jpg">
-        <div class="container">
-            <div class="footer-text">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="footer-logo">
-                            <div class="logo">
-                                <a href="#"><img src="img/footer-logo.png" alt=""></a>
-                            </div>
-                            <p>Subscribe our newsletter gor get notification about new updates.</p>
-                            <form action="#" class="newslatter-form">
-                                <input type="text" placeholder="Enter your email...">
-                                <button type="submit"><i class="fa fa-location-arrow"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 offset-lg-1">
-                        <div class="footer-widget">
-                            <h4>Property City</h4>
-                            <ul>
-                                <li><i class="fa fa-caret-right"></i> <a href="#">Florida</a></li>
-                                <li><i class="fa fa-caret-right"></i> <a href="#">New York</a></li>
-                                <li><i class="fa fa-caret-right"></i> <a href="#">Washington</a></li>
-                                <li><i class="fa fa-caret-right"></i> <a href="#">Los Angeles</a></li>
-                            </ul>
-                            <ul>
-                                <li><i class="fa fa-caret-right"></i> <a href="#">St Louis</a></li>
-                                <li><i class="fa fa-caret-right"></i> <a href="#">Jacksonville</a></li>
-                                <li><i class="fa fa-caret-right"></i> <a href="#">San Jose</a></li>
-                                <li><i class="fa fa-caret-right"></i> <a href="#">San Diego</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="footer-widget">
-                            <h4>Social</h4>
-                            <ul class="social">
-                                <li><i class="ti-facebook"></i> <a href="#">Facebook</a></li>
-                                <li><i class="ti-instagram"></i> <a href="#">Instagram</a></li>
-                                <li><i class="ti-twitter-alt"></i> <a href="#">Twitter</a></li>
-                                <li><i class="ti-google"></i> <a href="#">Google+</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="footer-widget">
-                            <h4>Contact Us</h4>
-                            <ul class="contact-option">
-                                <li><i class="fa fa-map-marker"></i> 16 Creek Ave. Farming, NY</li>
-                                <li><i class="fa fa-phone"></i> (+88) 666 121 4321</li>
-                                <li><i class="fa fa-envelope"></i> info.colorlib@gmail.com</li>
-                                <li><i class="fa fa-clock-o"></i> Mon - Sat, 08 AM - 06 PM</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright-text">
-                <p><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></p>
-            </div>
-        </div>
-    </footer>
+    <?php include("footer.php"); ?>
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
@@ -613,7 +439,7 @@
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/main2.js"></script>
 </body>
 
 </html>
