@@ -3,6 +3,21 @@
 include('../connect.php');
 $properties = mysqli_query($dbconnect,"select * from properties" );
 
+if(isset($_POST['delete'])){
+    $id=$_GET['id'];
+    $msg = '';
+    $error = '';
+
+    $delete= mysqli_query($dbconnect,"DELETE FROM `properties` WHERE `id`=$id");
+    if($delete){
+        global $msg;
+        $msg .= "Property deleted successfully";
+    }else{
+        global $error;
+        $error .= "Unable to delete property. Try Again";
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -158,6 +173,20 @@ $properties = mysqli_query($dbconnect,"select * from properties" );
                             </ul>
                         </ol>
                         <div class="container-fluid">
+                        <?php 
+                            if (!empty($error)){ ?>
+                            <div class="alert alert-danger alert-dismissible col-md-12">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <strong>Error!</strong> <?php  echo $error  ?>
+                            </div>
+                        <?php } ?>
+                        <?php 
+                            if (!empty($msg)){ ?>
+                            <div class="alert alert-success alert-dismissible col-md-12">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <strong>success!</strong> <?php  echo $msg  ?>
+                            </div>
+                        <?php } ?>
                             <table class="dataTable">
                                 <thead>
                                     <tr>
