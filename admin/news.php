@@ -1,6 +1,6 @@
 <?php 
 
-include('connect.php');
+include('../connect.php');
 $news = mysqli_query($dbconnect,"select * from news" );
 
 ?>

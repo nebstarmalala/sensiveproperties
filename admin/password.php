@@ -3,7 +3,7 @@
 require_once(__DIR__ . '../../vendor/autoload.php');
 use PHPMailer\PHPMailer\PHPMailer;
 /*echo sha1("password");*/
-include('connect.php');
+include('../connect.php');
    if (isset($_POST['reset'])) {
 
         $email = $_POST['reset_email'];

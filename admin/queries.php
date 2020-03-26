@@ -1,6 +1,6 @@
 <?php 
 
-include('connect.php');
+include('../connect.php');
 $queries = mysqli_query($dbconnect,"select * from queries" );
 
 ?>

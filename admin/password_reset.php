@@ -1,5 +1,5 @@
 <?php 
-include('connect.php');
+include('../connect.php');
  $token=$_GET['reset_token'];
  $error = '';
 

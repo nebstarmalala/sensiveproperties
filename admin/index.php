@@ -1,6 +1,6 @@
 <?php 
 /*echo sha1("password");*/
-include('connect.php');
+include('../connect.php');
    if (isset($_POST['submit'])) {
 
         $email = $_POST['email'];

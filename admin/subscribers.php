@@ -1,6 +1,7 @@
 <?php 
 
-include('connect.php');
+include('../connect.php');
+
 $subscribers = mysqli_query($dbconnect,"select * from subscribers" );
 
 ?>
