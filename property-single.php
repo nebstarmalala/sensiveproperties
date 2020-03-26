@@ -1,3 +1,13 @@
+<?php 
+ include('connect.php');
+ $id=$_GET['id'];
+
+ if (!empty($id)){
+    $_property = mysqli_query($dbconnect,"SELECT  `title`, `category`, `location`,`latitude`,`longitude`, `sale_type`, `bedrooms`, `price`, `area`, `garage`, `description`, `image` FROM `properties` WHERE `id` = '$id' ");
+  }else{
+        header("location:index.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -124,28 +134,28 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <div class="pd-hero-text">
-                        <p class="room-location"><i class="icon_pin"></i> 9721 Glen Creek Ave. Ballston Spa, NY</p>
-                        <h2>Villa 9721 Glen Creek</h2>
+                        <p class="room-location"><i class="icon_pin"></i> Your Location</p>
+                        <h2>Your Sensive Home</h2>
                         <div class="room-price">
-                            <span>Start Form:</span>
-                            <p>$3.000.000</p>
+                            <span>Price:</span>
+                            <p>$Your Price</p>
                         </div>
                         <ul class="room-features">
                             <li>
                                 <i class="fa fa-arrows"></i>
-                                <p>5201 sqft</p>
+                                <p>various sqft(s)</p>
                             </li>
                             <li>
                                 <i class="fa fa-bed"></i>
-                                <p>8 Bed Room</p>
+                                <p>upto 8 Bedrooms</p>
                             </li>
                             <li>
                                 <i class="fa fa-bath"></i>
-                                <p>7 Baths Bed</p>
+                                <p>upto 7 Bath Beds</p>
                             </li>
                             <li>
                                 <i class="fa fa-car"></i>
-                                <p>1 Garage</p>
+                                <p> Garage</p>
                             </li>
                         </ul>
                     </div>
@@ -156,12 +166,14 @@
     <!-- Property Details Hero Section Begin -->
 
     <!-- Property Details Section Begin -->
+<?php while ($property=mysqli_fetch_assoc($_property)) { ?>
     <section class="property-details-section spad">
         <div class="container">
+        <h2><?php echo $property['title'] ?></h2>
+        <br>
             <div class="row">
                 <div class="col-lg-9">
                     <div class="pd-details-text">
-                        
                         <div class="property-more-pic">
                             <div class="product-pic-zoom">
                                 <img class="product-big-img" src="img/properties/property-details-b1.jpg" alt="">
@@ -202,63 +214,40 @@
                                                 <tbody>
                                                     <tr>
                                                         <td class="pt-name">Price</td>
-                                                        <td class="p-value">$ 138,000</td>
+                                                        <td class="p-value"><?php echo $property['price'] ?></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="pt-name">Property Type</td>
-                                                        <td class="p-value">Villa</td>
+                                                        <td class="p-value"><?php echo $property['category'] ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="pt-name">Year Built</td>
-                                                        <td class="p-value">2016</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="pt-name">Bathrooms</td>
-                                                        <td class="p-value">3</td>
+                                                        <td class="pt-name">Contract type</td>
+                                                        <td class="p-value"><?php echo $property['sale_type'] ?></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="pt-name">Rooms</td>
-                                                        <td class="p-value">12</td>
+                                                        <td class="p-value"><?php echo $property['bedrooms'] ?></td>
                                                     </tr>
-                                                    <tr>
-                                                        <td class="pt-name">Parking lots</td>
-                                                        <td class="p-value">3</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="pt-name">Lot area</td>
-                                                        <td class="p-value">200 spft</td>
-                                                    </tr>
+                                                    
                                                 </tbody>
                                             </table>
                                             <table class="right-table">
                                                 <tbody>
                                                     <tr>
-                                                        <td class="pt-name">Agent</td>
-                                                        <td class="p-value">Adam Smith</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="pt-name">Reference</td>
-                                                        <td class="p-value">#2019</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="pt-name">Contract type</td>
-                                                        <td class="p-value">Sale</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="pt-name">Beds</td>
-                                                        <td class="p-value">4</td>
+                                                        <td class="pt-name">location</td>
+                                                        <td class="p-value"><?php echo $property['location'] ?></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="pt-name">Garages</td>
-                                                        <td class="p-value">2</td>
+                                                        <td class="p-value"><?php echo $property['garage'] ?></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="pt-name">Home area</td>
-                                                        <td class="p-value">1200 sqft</td>
+                                                        <td class="p-value"><?php echo $property['area'] ?> sqft</td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="pt-name">Gara Size</td>
-                                                        <td class="p-value">200 sqft</td>
+                                                        <td class="pt-name">#</td>
+                                                        <td class="p-value">#</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -266,34 +255,7 @@
                                     </div>
                                     <div class="tab-pane fade" id="tab-2" role="tabpanel">
                                         <div class="pd-table-desc">
-                                            <p>Learn how to improve your playing quality and even overall understanding
-                                                of online gaming and how you perform while playing online. Gaming online
-                                                is a huge business nowadays and that means that there are millions of
-                                                people worldwide at online game sites all the time. Many are people just
-                                                like you and me that like to play online and have fun doing it. Some of
-                                                these people enjoy it so much, that they often do not even care about
-                                                improving their skill and raising their chances of winning.</p>
-                                            <p>Learn how to improve your playing quality and even overall understanding
-                                                of online gaming and how you perform while playing online. Gaming online
-                                                is a huge business nowadays and that means that there are millions of
-                                                people worldwide at online game sites all the time. Many are people just
-                                                like you and me that like to play online and have fun doing it. Some of
-                                                these people enjoy it so much, that they often do not even care about
-                                                improving their skill and raising their chances of winning.</p>
-                                                <p>Learn how to improve your playing quality and even overall understanding
-                                                of online gaming and how you perform while playing online. Gaming online
-                                                is a huge business nowadays and that means that there are millions of
-                                                people worldwide at online game sites all the time. Many are people just
-                                                like you and me that like to play online and have fun doing it. Some of
-                                                these people enjoy it so much, that they often do not even care about
-                                                improving their skill and raising their chances of winning.</p>
-                                            <p>Learn how to improve your playing quality and even overall understanding
-                                                of online gaming and how you perform while playing online. Gaming online
-                                                is a huge business nowadays and that means that there are millions of
-                                                people worldwide at online game sites all the time. Many are people just
-                                                like you and me that like to play online and have fun doing it. Some of
-                                                these people enjoy it so much, that they often do not even care about
-                                                improving their skill and raising their chances of winning.</p>
+                                            <?php echo $property['description'] ?>
                                         </div>
                                     </div>
                                 </div>
@@ -301,14 +263,7 @@
                         </div>
                         <div class="property-map">
                             <h4>Map</h4>
-                            <div class="map-inside">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2942.5524090066037!2d-71.10245469994108!3d42.47980730490846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e3748250c43a43%3A0xe1b9879a5e9b6657!2sWinter%20Street%20Public%20Parking%20Lot!5e0!3m2!1sen!2sbd!4v1577299251173!5m2!1sen!2sbd"
-                                    height="320" style="border:0;" allowfullscreen=""></iframe>
-                                <div class="icon">
-                                    <i class="fa fa-home"></i>
-                                </div>
-                            </div>
+                            <div id="map" style="height: 400px;"></div>
                         </div>
                         <div class="property-contactus">
                             <h4>Contact Us</h4>
@@ -423,6 +378,7 @@
             </div>
         </div>
     </section>
+
     <!-- Property Details Section End -->
 
     
@@ -440,6 +396,34 @@
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main2.js"></script>
+    <script>
+     
+      function initMap() {
+        var latitude = <?php echo $property['latitude'] ?>;
+        var longitude = <?php echo $property['longitude'] ?>;
+        var map;
+        
+        var myLatlng = new google.maps.LatLng(latitude,longitude);
+        var mapOptions = {
+        zoom: 15,
+        center: myLatlng
+        }
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            
+        });
+
+        // To add the marker to the map, call setMap();
+        marker.setMap(map);
+      }
+      
+        
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBO5Else2rW4UNyXiCMp3y20JV7BseTMys&callback=initMap"
+    async defer></script>
+<?php } ?>
 </body>
 
 </html>

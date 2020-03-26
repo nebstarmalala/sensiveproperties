@@ -1,6 +1,6 @@
 <?php
    if (isset($_POST['submit'])) {
-    include('connect.php');
+    include('../connect.php');
 
     $file=$_FILES['filetoupload']['tmp_name'];
     $target_dir = "../uploads/";
@@ -26,19 +26,21 @@
     
     if ($uploadOk !=0 ){
         if (move_uploaded_file($_FILES['filetoupload']['tmp_name'],$target_dir.$new_file_name)) {
+
             $title =mysqli_real_escape_string ($dbconnect,$_POST['title']);
             $category =mysqli_real_escape_string ($dbconnect,$_POST['category']);
             $location=mysqli_real_escape_string ($dbconnect,$_POST['location']);
+            $longitude =mysqli_real_escape_string ($dbconnect,$_POST['longitude']);
+            $latitude =mysqli_real_escape_string ($dbconnect,$_POST['latitude']);
             $sale_type =mysqli_real_escape_string ($dbconnect,$_POST['sale_type']);
             $bedrooms =mysqli_real_escape_string ($dbconnect,$_POST['bedrooms']);
             $price =mysqli_real_escape_string ($dbconnect,$_POST['price']);
             $area =mysqli_real_escape_string ($dbconnect,$_POST['area']);
             $garage =mysqli_real_escape_string ($dbconnect,$_POST['garage']);
-            $bathbed =mysqli_real_escape_string ($dbconnect,$_POST['bathbed']);
             $description =mysqli_real_escape_string ($dbconnect,$_POST['description']);
             $created_at =date("Y-m-d H:i:s",time());
 
-            $insert = mysqli_query($dbconnect,"INSERT INTO `properties` (`title`, `category`,`location`, `sale_type`,`bedrooms`, `price`, `area`, `garage`,`bathbeds`,`description`,`image`,`added_on`) VALUES ('$title','$category','$location','$sale_type','$bedrooms','$price','$area','$garage','$bathbed','$description','$new_file_name','$created_at')");
+            $insert = mysqli_query($dbconnect,"INSERT INTO `properties` (`title`, `category`,`location`,`longitude`,`latitude`, `sale_type`,`bedrooms`, `price`, `area`, `garage`,`description`,`image`,`added_on`) VALUES ('$title','$category','$location','$longitude','$latitude','$sale_type','$bedrooms','$price','$area','$garage','$description','$new_file_name','$created_at')");
                 if($insert){
                     header('location:properties.php');
                 }else{
@@ -182,10 +184,10 @@
                             <div  class="form-group col-md-6">
                                 <select class="form-control" name="bedrooms">
                                     <option value="">Select No. of bedrooms</option>
-                                    <option value="Available">1 bedroom</option>
-                                    <option value="On offer">2 bedrooms</option>
-                                    <option value="Available">3 bedrooms</option>
-                                    <option value="On offer">4 bedrooms</option>
+                                    <option value="1 bedroom">1 bedroom</option>
+                                    <option value="2 bedrooms">2 bedrooms</option>
+                                    <option value="3 bedrooms">3 bedrooms</option>
+                                    <option value="4 bedrooms">4 bedrooms</option>
                                 </select>
                             </div>
                         </div>
@@ -210,15 +212,6 @@
                                     <option value="2">2 Garages</option>
                                     <option value="3">3 Garages</option>
                                     <option value="4">4 Garages</option>
-                                </select>
-                            </div>
-                            <div  class="form-group col-md-6">
-                                <select class="form-control" name="bathbed">
-                                    <option value="">Bath bed(s)</option>
-                                    <option value="1">1 Bath bed</option>
-                                    <option value="2">2 Bath bed(s)</option>
-                                    <option value="3">3 Bath bed(s)</option>
-                                    <option value="4">4 Bath bed(s)</option>
                                 </select>
                             </div>
                         </div>

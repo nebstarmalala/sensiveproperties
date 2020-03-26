@@ -1,7 +1,7 @@
 <?php
 
     if (isset($_POST['submit'])) {
-      include('connect.php');
+        include('../connect.php');
      
 
         $title =mysqli_real_escape_string ($dbconnect,$_POST['title']);

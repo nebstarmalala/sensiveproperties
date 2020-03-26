@@ -1,5 +1,5 @@
 <?php
- include('connect.php');
+ include('../connect.php');
 
     $top_properties=mysqli_query($dbconnect,"SELECT COUNT(*) as TOTAL from subscribers");
     $top_properties_data=mysqli_fetch_assoc($top_properties);
