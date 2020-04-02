@@ -76,7 +76,19 @@
             .file_button{
                 margin-left:15px;
             }
-           
+            input#file {
+                display: inline-block;
+                width: 100%;
+                padding: 120px 0 0 0;
+                height: 100px;
+                overflow: hidden;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                background: url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698394-icon-130-cloud-upload-512.png') center center no-repeat #e4e4e4;
+                border-radius: 20px;
+                background-size: 60px 60px;
+            }
             
         </style>
         <style>
@@ -220,8 +232,9 @@
                             <textarea class="form-control textarea" rows="6" id="summernote" name="description" ></textarea>                    
                         </div>
                         <br>
-                        <div>
-                            <input type="file" class="form-control "  name="filetoupload"  >
+                        <div class="form-group col-md-12"> 
+                            <input type="file" id="file" accept="image/x-png,image/gif,image/jpeg" multiple onchange="loadFile(event)" class="form-control"  name="filetoupload" multiple>
+                            <img id="output" width="350"/><br>
                         </div>
                         <br>
                         <div class="form-group col-md-12">

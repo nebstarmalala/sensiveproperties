@@ -39,16 +39,16 @@ include('../connect.php');
                          // send email
                         $mail = new PHPMailer();
                         $mail->isSMTP();
-                        $mail->Host = 'smtp.mailtrap.io';
+                        $mail->Host = $_ENV['MAIL_HOST'];
                         $mail->SMTPAuth = true;
-                        $mail->Username = 'd4ddd996baff19';
-                        $mail->Password = '912f2078611dbc';
+                        $mail->Username = $_ENV['MAIL_USERNAME'];
+                        $mail->Password = $_ENV['MAIL_PASSWORD'];
                         $mail->SMTPSecure = 'tls';
-                        $mail->Port = 2525;
+                        $mail->Port = $_ENV['MAIL_PORT'];
 
-                        $mail->setFrom('info@sensiveproperties.com', 'Sensive Properties');
-                        $mail->addReplyTo('info@sensiveproperties.com', 'Sensive Properties');
-                        $mail->addAddress('sensiveproperties@gmail.com');
+                        $mail->setFrom($_ENV['MAIL_FROM_ADDRESS'], $_ENV['MAIL_FROM_NAME']);
+                        $mail->addReplyTo($_ENV['MAIL_FROM_ADDRESS'], $_ENV['MAIL_FROM_NAME']);
+                        $mail->addAddress($_ENV['MAIL_FROM_ADDRESS']);
                         $mail->Subject = 'Password Reset - Sensive Properties';
                         $mail->isHTML(true);
                         $mail->isHTML(true);                                  // Set email format to HTML
