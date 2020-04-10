@@ -92,7 +92,19 @@
             .file_button{
                 margin-left:15px;
             }
-           
+            input#file {
+                display: inline-block;
+                width: 100%;
+                padding: 120px 0 0 0;
+                height: 100px;
+                overflow: hidden;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                background: url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698394-icon-130-cloud-upload-512.png') center center no-repeat #e4e4e4;
+                border-radius: 20px;
+                background-size: 60px 60px;
+            }
             
         </style>
         <style>
@@ -119,26 +131,25 @@
         </nav>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="dashboard.php"
+                            <a class="nav-link" href="editproperty.php"
                                 ><div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard</a>
-                            
+                                Dashboard
+                            </a>
                             <a class="nav-link" href="subscribers.php"
                                 ><div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                                 subscribers
                             </a>
-                            
                             <a class="nav-link" href="properties.php"
                                 ><div class="sb-nav-link-icon"><i class="fas fa-university"></i></div>
                                 Properties
                             </a>
 
                             <a class="nav-link" href="news.php"
-                                ><div class="sb-nav-link-icon"><i class="fas fa-newspaper"></i></i></div>
+                                ><div class="sb-nav-link-icon"><i class="fas fa-newspaper"></i></div>
                                 News
                             </a>
 
@@ -146,6 +157,7 @@
                                 ><div class="sb-nav-link-icon"><i class="fas fa-info-circle"></i></i></div>
                                 Enquiry
                             </a>
+                            
                 </nav>
             </div>
             <div id="layoutSidenav_content">
@@ -153,10 +165,10 @@
                     <div class="container-fluid">
                     <br>
                     <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Edit Property</li>
+                            <li class="breadcrumb-item active">Add Property</li>
                         </ol>
                     <form  method="post" action="addproperty.php" enctype="multipart/form-data">
-                    <div class="form-group col-md-12">
+                    <div class="row form-group col-md-12">
                         <div class="form-group col-md-6">
                             <input type="text" id="title" class="form-control"  name="title" placeholder="title of property">
                         </div>
@@ -187,7 +199,8 @@
                             </div>                                       
                                         
                         </div> 
-                        <div class="form-group col-md-12" >
+                        <br>
+                        <div class="row form-group col-md-12" >
                             <div  class="form-group col-md-6">
                                 <select class="form-control" name="sale_type">
                                     <option value="">Select sale type</option>
@@ -200,15 +213,14 @@
                             <div  class="form-group col-md-6">
                                 <select class="form-control" name="bedrooms">
                                     <option value="">Select No. of bedrooms</option>
-                                    <option value="Available">1 bedroom</option>
-                                    <option value="On offer">2 bedrooms</option>
-                                    <option value="Available">3 bedrooms</option>
-                                    <option value="On offer">4 bedrooms</option>
+                                    <option value="1 bedroom">1 bedroom</option>
+                                    <option value="2 bedrooms">2 bedrooms</option>
+                                    <option value="3 bedrooms">3 bedrooms</option>
+                                    <option value="4 bedrooms">4 bedrooms</option>
                                 </select>
                             </div>
                         </div>
-                        <br>
-                        <div  class="form-group col-md-12">
+                        <div  class="row form-group col-md-12">
                             
                             <div class="form-group col-md-6">
                                 <input type="text" class="form-control" name="price" id="currency-field" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency" placeholder="price in $dollars">
@@ -220,33 +232,13 @@
                             
                         </div>
                         <br>
-                        <div class="form-group col-md-12">
-                            <div  class="form-group col-md-6">
-                                <select class="form-control" name="garage">
-                                    <option value="">Garage(s)</option>
-                                    <option value="1">1 Garage</option>
-                                    <option value="2">2 Garages</option>
-                                    <option value="3">3 Garages</option>
-                                    <option value="4">4 Garages</option>
-                                </select>
-                            </div>
-                            <div  class="form-group col-md-6">
-                                <select class="form-control" name="bathbed">
-                                    <option value="">Bath bed(s)</option>
-                                    <option value="1">1 Bath bed</option>
-                                    <option value="2">2 Bath bed(s)</option>
-                                    <option value="3">3 Bath bed(s)</option>
-                                    <option value="4">4 Bath bed(s)</option>
-                                </select>
-                            </div>
-                        </div>
-                        <br>
                         <div class="form-group col-md-12" >
                             <textarea class="form-control textarea" rows="6" id="summernote" name="description" ></textarea>                    
                         </div>
                         <br>
-                        <div>
-                            <input type="file" class="form-control "  name="filetoupload"  >
+                        <div class="form-group col-md-12"> 
+                            <input type="file" id="file" accept="image/x-png,image/gif,image/jpeg" multiple onchange="loadFile(event)" class="form-control"  name="filetoupload" multiple>
+                            <img id="output" width="350"/><br>
                         </div>
                         <br>
                         <div class="form-group col-md-12">
