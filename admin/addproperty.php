@@ -152,7 +152,7 @@
                             <li class="breadcrumb-item active">Add Property</li>
                         </ol>
                     <form  method="post" action="addproperty.php" enctype="multipart/form-data">
-                    <div class="form-group col-md-12">
+                    <div class="row form-group col-md-12">
                         <div class="form-group col-md-6">
                             <input type="text" id="title" class="form-control"  name="title" placeholder="title of property">
                         </div>
@@ -183,7 +183,8 @@
                             </div>                                       
                                         
                         </div> 
-                        <div class="form-group col-md-12" >
+                        <br>
+                        <div class="row form-group col-md-12" >
                             <div  class="form-group col-md-6">
                                 <select class="form-control" name="sale_type">
                                     <option value="">Select sale type</option>
@@ -203,8 +204,7 @@
                                 </select>
                             </div>
                         </div>
-                        <br>
-                        <div  class="form-group col-md-12">
+                        <div  class="row form-group col-md-12">
                             
                             <div class="form-group col-md-6">
                                 <input type="text" class="form-control" name="price" id="currency-field" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency" placeholder="price in $dollars">
@@ -214,18 +214,6 @@
                                 <input type="number" class="form-control" name="area" placeholder="Area in sqft">
                             </div>
                             
-                        </div>
-                        <br>
-                        <div class="form-group col-md-12">
-                            <div  class="form-group col-md-6">
-                                <select class="form-control" name="garage">
-                                    <option value="">Garage(s)</option>
-                                    <option value="1">1 Garage</option>
-                                    <option value="2">2 Garages</option>
-                                    <option value="3">3 Garages</option>
-                                    <option value="4">4 Garages</option>
-                                </select>
-                            </div>
                         </div>
                         <br>
                         <div class="form-group col-md-12" >
