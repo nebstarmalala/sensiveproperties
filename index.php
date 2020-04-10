@@ -126,36 +126,27 @@ $properties = mysqli_query($dbconnect,"select * from properties" );
                             House For Sell
                         </div>
                     </div>
-                    <form action="#" class="filter-form">
-                        <div class="first-row">
-                            <select>
-                                <option value="">Villa & Pool</option>
-                            </select>
-                            <select>
-                                <option value="">Title</option>
-                            </select>
-                            <select>
-                                <option value="">Ani City</option>
-                            </select>
-                            <select>
-                                <option value="">Any Bithrooms</option>
-                            </select>
+                    <form action="index.php" class="filter-form">
+                        <div class="first-row row col-md-12">
+                            <div class="form-group col-md-6">
+                                <input type="text" id="location" class="form-control location-address "  name="location" placeholder="Location">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" id="title" class="form-control"  name="title" placeholder="No of bedrooms">
+                            </div>
                         </div>
-                        <div class="second-row">
-                            <select>
-                                <option value="">Any Bedrooms</option>
-                            </select>
+                        <div class="second-row row">
                             <div class="price-range-wrap">
                                 <div class="price-text">
                                     <label for="priceRange">Price:</label>
-                                    <input type="text" id="priceRange" readonly>
+                                    <input type="text" id="priceRange" >
                                 </div>
                                 <div id="price-range" class="slider"></div>
                             </div>
                             <div class="room-size-range">
                                 <div class="price-text">
                                     <label for="roomsizeRange">Size:</label>
-                                    <input type="text" id="roomsizeRange" readonly>
+                                    <input type="text" id="roomsizeRange" >
                                 </div>
                                 <div id="roomsize-range" class="slider"></div>
                             </div>
@@ -204,7 +195,7 @@ $properties = mysqli_query($dbconnect,"select * from properties" );
                                     <h4><?php echo $property['price'] ?></h4>
                                 </div>
                                 <div class="properties-location"><i class="icon_pin"></i> </i> <?php echo $property['location'] ?></div>
-                                <p><?php echo substr($property['description'],0,340)."..."; ?></p>
+                                <p><?php echo substr($property['description'],0,450)."..."; ?></p>
                                 <ul class="room-features">
                                     <li>
                                         <i class="fa fa-arrows"></i>
@@ -251,7 +242,11 @@ $properties = mysqli_query($dbconnect,"select * from properties" );
     <script src="js/jquery.nice-select.min.js"></script>
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/jquery-ui.min.js"></script>
-    <!-- <script src="js/owl.carousel.min.js"></script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3&libraries=places&key=AIzaSyBO5Else2rW4UNyXiCMp3y20JV7BseTMys"></script>
+    <script src="js/jquery.placepicker.js"></script>
+    <script>
+        $(".location-address").placepicker().data('placepicker');
+    </script>
     <script src="js/main.js"></script>
 </body>
 
