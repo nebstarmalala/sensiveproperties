@@ -174,7 +174,7 @@ $queries = mysqli_query($dbconnect,"select * from queries" );
                                     <td><?php echo substr($query['body'],0,200); ?></td>
                                     <td><?php echo date("dS M Y  "); ?></td>
                                     <td>
-                                        <a href="#"><i class="far fa-edit" style="font-size:24px;margin-right:15px;"></i> 
+                                        <a href="mailto:<?php echo $query['email'] ?> "><i class="fas fa-reply" style="font-size:24px;margin-right:15px;"></i> 
                                         <a href="#"><i class="fas fa-trash-alt"  style="font-size:24px;"></i> 
                                     </td>
                                 </tr>
