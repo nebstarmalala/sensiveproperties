@@ -1,8 +1,17 @@
-
 <?php 
 
 include('connect.php');
 $properties = mysqli_query($dbconnect,"select * from properties" );
+
+if(isset($POST['submit'])){
+    $location = mysqli_real_escape_string($dbconnect , $POST['location']);
+    $price = mysqli_real_escape_string($dbconnect , $POST['price']);
+    $bedrooms = mysqli_real_escape_string($dbconnect , $POST['bedrooms']);
+    $area = mysqli_real_escape_string($dbconnect , $POST['area']);
+
+   
+}
+
 
 
 ?>
@@ -46,6 +55,8 @@ $properties = mysqli_query($dbconnect,"select * from properties" );
     <div id="preloder">
         <div class="loader"></div>
     </div>
+   
+    
 
     
 
@@ -126,31 +137,31 @@ $properties = mysqli_query($dbconnect,"select * from properties" );
                             House For Sell
                         </div>
                     </div>
-                    <form action="index.php" class="filter-form">
+                    <form action="index.php" method="post" class="filter-form">
                         <div class="first-row row col-md-12">
                             <div class="form-group col-md-6">
                                 <input type="text" id="location" class="form-control location-address "  name="location" placeholder="Location">
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="text" id="title" class="form-control"  name="title" placeholder="No of bedrooms">
+                                <input type="text" id="title" class="form-control"  name="bedrooms" placeholder="No of bedrooms">
                             </div>
                         </div>
                         <div class="second-row row">
                             <div class="price-range-wrap">
                                 <div class="price-text">
                                     <label for="priceRange">Price:</label>
-                                    <input type="text" id="priceRange" >
+                                    <input type="text" name="price" id="priceRange" >
                                 </div>
                                 <div id="price-range" class="slider"></div>
                             </div>
                             <div class="room-size-range">
                                 <div class="price-text">
                                     <label for="roomsizeRange">Size:</label>
-                                    <input type="text" id="roomsizeRange" >
+                                    <input type="text" name="area" id="roomsizeRange" >
                                 </div>
                                 <div id="roomsize-range" class="slider"></div>
                             </div>
-                            <button type="button" class="search-btn">Search</button>
+                            <button type="submit" name="submit" class="search-btn">Search</button>
                         </div>
                     </form>
                 </div>
