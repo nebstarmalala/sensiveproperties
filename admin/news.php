@@ -1,7 +1,9 @@
 <?php 
 
 include('../connect.php');
+include ('session.php');
 $news = mysqli_query($dbconnect,"select * from news" );
+$number = 1;
 
 ?>
 <!DOCTYPE html>
@@ -173,7 +175,7 @@ $news = mysqli_query($dbconnect,"select * from news" );
                                 <tbody>
                                 <?php while ($new=mysqli_fetch_assoc($news)) { ?>
                                     <tr>
-                                        <td><?php echo $new['id'] ?></td>
+                                        <td><?php echo $number ?></td>
                                         <td><?php echo $new['title'] ?></td>
                                         <td><?php echo substr($new['description'],0,200); ?></td>
                                         <td><?php echo date("dS M Y  "); ?></td>
@@ -182,7 +184,9 @@ $news = mysqli_query($dbconnect,"select * from news" );
                                             <a href="#"><i class="fas fa-trash-alt"  style="font-size:24px;"></i> </a>
                                         </td>
                                     </tr>
-                                <?php } ?>
+                                <?php 
+                                    $number++;
+                                } ?>
                                 </tbody>
                             </table>
                         </div>

@@ -1,15 +1,20 @@
 <?php 
-/*echo sha1("password");*/
+session_start();
+
 include('../connect.php');
    if (isset($_POST['submit'])) {
 
         $email = $_POST['email'];
         $password = sha1($_POST['password']);
         $error = '';
+        $msg = '';
 
         $check_admin = mysqli_query($dbconnect,"SELECT email FROM `admin` WHERE `email` = '$email' AND `password`='$password'");
          if (mysqli_num_rows($check_admin) == 1) {
-           header('location:dashboard.php');
+            global $msg;
+            $msg .= "Logged in successfully";
+            $_SESSION["email"] = $email;
+            header("location:dashboard.php");
          }else{
             global $error;
             $error .= "invalid username or password";  
@@ -53,6 +58,13 @@ include('../connect.php');
                                             <div class="alert alert-danger alert-dismissible col-md-12">
                                                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                                                 <strong>Error!</strong> <?php  echo $error  ?>
+                                            </div>
+                                        <?php } ?>
+                                        <?php 
+                                            if (!empty($msg)){ ?>
+                                            <div class="alert alert-success alert-dismissible col-md-12">
+                                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                                <strong>success</strong> <?php  echo $msg  ?>
                                             </div>
                                         <?php } ?>
                                             <div class="form-group" ><label class="small mb-1" for="inputEmailAddress">Email</label><input class="form-control py-4" id="inputEmailAddress" type="email" name="email" placeholder="Enter email address" /></div>

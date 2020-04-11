@@ -1,8 +1,9 @@
 <?php 
 
 include('../connect.php');
-
+include ('session.php');
 $subscribers = mysqli_query($dbconnect,"select * from subscribers" );
+$number = 1;
 
 ?>
 <!DOCTYPE html>
@@ -171,11 +172,13 @@ $subscribers = mysqli_query($dbconnect,"select * from subscribers" );
                                 <tbody>
                                 <?php while ($subscriber=mysqli_fetch_assoc($subscribers)) { ?>
                                     <tr>
-                                        <td><?php echo $subscriber['id'] ?></td>
+                                        <td><?php echo $number ?></td>
                                         <td><?php echo $subscriber['email'] ?></td>
                                         <td><?php echo date("dS M Y  "); ?></td>
                                     </tr>
-                                <?php } ?>
+                                <?php 
+                                    $number ++;
+                                } ?>
                                 </tbody>
                             </table>
                         </div>

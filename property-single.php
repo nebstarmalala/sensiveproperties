@@ -34,6 +34,13 @@
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <style>
+        a.hover {
+            color: #007bff;
+            text-decoration: none;
+            background-color: transparent;
+        }
+    </style>
 </head>
 
 <body>
@@ -268,8 +275,19 @@
                         <div class="property-contactus">
                             <h4>Contact Us</h4>
                             <div class="row">
+                                <div class="col-md-12 row">
+                                    <div class="col-md-4">
+                                            <a href="#"  class="property-items"><i class="fa fa-map-marker"></i> 16 Creek Ave. Farming, NY</a>
+                                    </div>
+                                    <div class="col-md-4">
+                                            <a href="#"  ><i class="fa fa-phone"></i> (+88) 666 121 4321</a>
+                                    </div>
+                                    <div class="col-md-4">
+                                            <a href="#"  ><i class="fa fa-envelope"></i> info.colorlib@gmail.com</a>
+                                    </div>
+                                </div>
                                 <div class="col-lg-12 contact-text">
-                                    <form action="contact.php" class="contact-form" method="post" novalidate="novalidate">
+                                    <form action="contact.php" class="contact-form" method="post" >
                                     <?php 
                                         if (!empty($error)){ ?>
                                         <div class="alert alert-danger alert-dismissible col-md-12">

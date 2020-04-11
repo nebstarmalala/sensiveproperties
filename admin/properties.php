@@ -1,7 +1,9 @@
 <?php 
 
 include('../connect.php');
+include ('session.php');
 $properties = mysqli_query($dbconnect,"select * from properties" );
+$number = 1;
 
 if(isset($_POST['delete'])){
     $id=$_GET['id'];
@@ -202,18 +204,20 @@ if(isset($_POST['delete'])){
                                 <tbody>
                                 <?php while ($property=mysqli_fetch_assoc($properties)) { ?>
                                     <tr>
-                                        <td><?php echo $property['id'] ?></td>
+                                        <td><?php echo $number ?></td>
                                         <td><?php echo $property['title'] ?></td>
                                         <td><?php echo $property['category'] ?></td>
                                         <td><?php echo $property['location'] ?></td>
                                         <td><?php echo $property['price'] ?></td>
-                                        <td><?php echo $property['added_on'] ?></td>
+                                        <td><?php echo date("dS M Y  ", strtotime($property['added_on']));; ?></td>
                                         <td>
                                             <a href="editproperty.php?id=<?php echo $property['id'] ?>"><i class="far fa-edit" style="font-size:24px;margin-right:15px;"></i></a> 
                                             <a href="#"><i class="fas fa-trash-alt"  style="font-size:24px;"></i></a> 
                                         </td>
                                     </tr>
-                                <?php } ?>
+                                <?php 
+                                    $number++;
+                                } ?>
                                 </tbody>
                             </table>
                         </div>

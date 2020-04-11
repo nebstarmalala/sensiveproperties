@@ -1,7 +1,9 @@
 <?php 
 
 include('../connect.php');
+include ('session.php');
 $queries = mysqli_query($dbconnect,"select * from queries" );
+$number =1;
 
 ?>
 <!DOCTYPE html>
@@ -169,7 +171,7 @@ $queries = mysqli_query($dbconnect,"select * from queries" );
                             <tbody>
                             <?php while ($query=mysqli_fetch_assoc($queries)) { ?>
                                 <tr>
-                                    <td><?php echo $query['id'] ?></td>
+                                    <td><?php echo $number ?></td>
                                     <td><?php echo $query['subject'] ?></td>
                                     <td><?php echo substr($query['body'],0,200); ?></td>
                                     <td><?php echo date("dS M Y  "); ?></td>
@@ -178,7 +180,9 @@ $queries = mysqli_query($dbconnect,"select * from queries" );
                                         <a href="#"><i class="fas fa-trash-alt"  style="font-size:24px;"></i> 
                                     </td>
                                 </tr>
-                            <?php } ?>
+                            <?php 
+                                $number++;
+                            } ?>
                             </tbody>
                         </table>
                     </div>
