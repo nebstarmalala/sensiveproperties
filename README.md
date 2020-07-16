@@ -1,11 +1,11 @@
-## sensiveproperties
+# sensiveproperties
 Built using :
 * HTML
 * CSS
 * JAVASCRIPT
 * PHP
 
-# INSTALLATION
+## INSTALLATION
 * Clone the repo ` git clone https://github.com/Trizzle9902/sensiveproperties.git` 
 * `cd sensiveproperties `
 * Create db and import tables from `sensiveproperties.sql`
