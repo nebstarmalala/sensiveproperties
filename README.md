@@ -1,4 +1,4 @@
-# sensiveproperties
+# Sensiveproperties
 Built using :
 * HTML
 * CSS
