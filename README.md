@@ -1,5 +1,9 @@
 ## sensiveproperties
-Built with php
+Built using :
+* HTML
+* CSS
+* JAVASCRIPT
+* PHP
 
 # INSTALLATION
 * Clone the repo ` git clone https://github.com/Trizzle9902/sensiveproperties.git` 
